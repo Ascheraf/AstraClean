@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="interieurreiniging Den Haag, auto interieur, tapijtreiniging, meubelreiniging, CleanCare">
+    <meta name="robots" content="index, follow">
+    <title>CleanCare - Interieurreiniging in Den Haag</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            text-align: center;
+            color: #333;
+        }
+        header {
+            background: #3a8fbf; /* Blauw voor interieurreiniging */
+            color: white;
+            padding: 60px 20px;
+            font-size: 36px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        header .logo {
+            max-width: 150px;  /* Pas de grootte van het logo aan naar wens */
+            height: auto;  /* Zorg ervoor dat de hoogte in verhouding blijft */
+        }
+        .container {
+            padding: 60px 20px;
+        }
+        .section {
+            background: white;
+            padding: 40px;
+            margin: 30px auto;
+            width: 80%;
+            max-width: 900px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .section:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            color: #3a8fbf; /* Blauw */
+            font-size: 28px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .cta-button {
+            background-color: #3a8fbf; /* Blauw */
+            color: white;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #297f9a;
+        }
+        .testimonial {
+            background-color: #f9f9f9;
+            border-left: 5px solid #3a8fbf;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .testimonial p {
+            font-style: italic;
+            color: #555;
+        }
+        .testimonial strong {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #3a8fbf;
+        }
+        .form-inputs input,
+        .form-inputs select,
+        .form-inputs button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .form-inputs button {
+            background-color: #3a8fbf;
+            color: white;
+            cursor: pointer;
+        }
+        .form-inputs button:hover {
+            background-color: #297f9a;
+        }
+        .social-icons {
+            margin-top: 20px;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s;
+        }
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+        footer {
+            margin-top: 40px;
+            padding: 25px;
+            background: #222;
+            color: white;
+            font-size: 16px;
+        }
+        #backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #3a8fbf;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #backToTop:hover {
+            background-color: #297f9a;
+        }
+        @media (max-width: 768px) {
+            header {
+                font-size: 28px;
+                padding: 40px 20px;
+            }
+            .section {
+                width: 100%;
+                padding: 20px;
+            }
+            .cta-button,
+            .form-inputs button {
+                padding: 20px;
+                font-size: 18px;
+            }
+            .social-icons img {
+                width: 35px;
+                height: 35px;
+            }
+            footer {
+                padding: 20px;
+                font-size: 14px;
+            }
+        }
+        @media (max-width: 480px) {
+            header {
+                font-size: 24px;
+                padding: 30px 15px;
+            }
+            .social-icons img {
+                width: 30px;
+                height: 30px;
+            }
+            footer {
+                padding: 15px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo-cleancare.png" alt="CleanCare Logo" class="logo">
+        <span>CleanCare - Interieurreiniging van Auto's, Tapijten en Banken in Den Haag</span>
+    </header>
+
+    <div class="container">
+        <!-- Diensten Sectie -->
+        <section class="section">
+            <h2>Onze Specialiteit in Interieurreiniging</h2>
+            <p>- Grondige reiniging van tapijten en vloerkleden</p>
+            <p>- Dieptereiniging van banken en meubels</p>
+            <p>- Auto interieurreiniging (zittingen, vloermatten, dashboard, etc.)</p>
+            <p>- Reiniging van gordijnen en stoffen</p>
+        </section>
+
+        <!-- Testimonials Sectie -->
+        <section class="section">
+            <h2>Wat Onze Klanten Zeggen</h2>
+            <div class="testimonial">
+                <p>"CleanCare heeft mijn auto grondig gereinigd, het lijkt wel nieuw!"</p>
+                <p><strong>- Jan Jansen, Autoliefhebber</strong></p>
+            </div>
+            <div class="testimonial">
+                <p>"De banken in mijn woonkamer zijn nooit zo schoon geweest. Top service!"</p>
+                <p><strong>- Petra de Vries, Huishouden</strong></p>
+            </div>
+        </section>
+
+        <!-- Offerte Aanvraag Formulier -->
+        <section class="section">
+            <h2>Vraag Vandaag Nog een Offerte Aan</h2>
+            <form action="mailto:info@cleancare.nl" method="post" enctype="text/plain" class="form-inputs">
+                <label for="name">Naam:</label>
+                <input type="text" id="name" name="name" required><br>
+
+                <label for="phone">Telefoonnummer:</label>
+                <input type="tel" id="phone" name="phone" required><br>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required><br>
+
+                <label for="service">Type Dienst:</label>
+                <select id="service" name="service" required>
+                    <option value="auto_interieur_reiniging">Auto Interieurreiniging</option>
+                    <option value="tapijtreiniging">Tapijtreiniging</option>
+                    <option value="bank_reiniging">Banken Reiniging</option>
+                    <option value="gordijnen_reiniging">Gordijnen Reiniging</option>
+                    <option value="vrachtwagen_reiniging">Vrachtwagen Interieurreiniging</option>
+                </select><br>
+
+                <button type="submit">Verstuur Aanvraag</button>
+            </form>
+        </section>
+
+        <!-- Sociale Media Sectie -->
+        <section class="section">
+            <h2>Volg Ons op Sociale Media</h2>
+            <div class="social-icons">
+                <a href="https://www.facebook.com" target="_blank">
+                    <img src="facebook-logo.png" alt="Facebook">
+                </a>
+                <a href="https://www.snapchat.com" target="_blank">
+                    <img src="snapchat-logo.png" alt="Snapchat">
+                </a>
+                <a href="https://www.tiktok.com" target="_blank">
+                    <img src="tiktok-logo.png" alt="TikTok">
+                </a>
+            </div>
+        </section>
+
+        <!-- Bedrijfsinformatie Sectie -->
+        <section class="section">
+            <h2>Contactinformatie</h2>
+            <p><strong>Locatie:</strong> Actief in Den Haag en omliggende regio</p>
+            <p><strong>Telefoon:</strong> 070-1234567</p>
+            <p><strong>Email:</strong> info@cleancare.nl</p>
+            <p><strong>Adres:</strong> Lange Vijverberg 20, 2513 AC Den Haag</p>
+            <p><strong>Specialisatie:</strong> Interieurreiniging voor auto's, tapijten, banken en andere meubels.</p>
+        </section>
+
+        <!-- Google Map -->
+        <section class="section">
+            <h2>Ons Kantoor in Den Haag</h2>
+            <div id="map" style="height: 400px; width: 100%;"></div>
+        </section>
+    </div>
+
+    <footer>&copy; 2025 CleanCare - Interieurreiniging van Auto's, Tapijten en Banken in Den Haag en omgeving</footer>
+
+    <button id="backToTop" onclick="scrollToTop()">↑</button>
+
+    <!-- Google Maps -->
+    <script>
+        function initMap() {
+            var denHaag = {lat: 52.0705, lng: 4.3007};
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: denHaag
+            });
+            var marker = new google.maps.Marker({
+                position: denHaag,
+                map: map,
+                title: 'CleanCare - Interieurreiniging in Den Haag'
+            });
+        }
+
+        function scrollToTop() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHmhy_XBxPvu20gI8gqUlXqmWAUQVd1hY&callback=initMap" async defer></script>
+</body>
+</html>
