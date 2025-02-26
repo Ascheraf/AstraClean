@@ -129,6 +129,12 @@
             color: white;
             font-size: 16px;
         }
+        footer .contact-info {
+            margin-bottom: 20px;
+        }
+        footer .social-icons a {
+            margin: 0 15px;
+        }
         #backToTop {
             position: fixed;
             bottom: 20px;
@@ -181,6 +187,39 @@
                 font-size: 12px;
             }
         }
+        /* FAQ Styling */
+        .faq {
+            background: #f9f9f9;
+            padding: 40px;
+            margin: 30px auto;
+            width: 80%;
+            max-width: 900px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+        .faq h2 {
+            color: #3a8fbf;
+        }
+        .faq-item {
+            background: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .faq-item h3 {
+            font-size: 20px;
+            cursor: pointer;
+            margin: 0;
+        }
+        .faq-item p {
+            font-size: 16px;
+            color: #555;
+            display: none;
+        }
+        .faq-item.active p {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -199,20 +238,35 @@
             <p>- Reiniging van gordijnen en stoffen</p>
         </section>
 
-        <!-- Testimonials Sectie -->
-        <section class="section">
-            <h2>Wat Onze Klanten Zeggen</h2>
-            <div class="testimonial">
-                <p>"CleanCare heeft mijn auto grondig gereinigd, communicatie was ook top!"</p>
-                <p><strong>- Jan Jansen, Autoliefhebber</strong></p>
+<!-- Testimonials Sectie -->
+<section class="section">
+    <h2>Wat Onze Klanten Zeggen</h2>
+    <div class="testimonial">
+        <p>"CleanCare heeft mijn auto grondig gereinigd, het lijkt wel nieuw!"</p>
+        <p><strong>- Zakaria Schelde, Autoliefhebber</strong></p>
+        <div class="stars">
+            &#9733;&#9733;&#9733;&#9733;&#9733; <!-- 5 sterren -->
+        </div>
+    </div>
+    <div class="testimonial">
+        <p>"De banken in mijn woonkamer zijn nooit zo schoon geweest. Top service!"</p>
+        <p><strong>- Petra de Vries, inwoner Den Haag</strong></p>
+        <div class="stars">
+            &#9733;&#9733;&#9733;&#9733;&#9734; <!-- 4 sterren -->
+        </div>
+    </div>
+    <!-- Nieuwe 3e Testimonial -->
+    <div class="testimonial">
+        <p>"Uitstekende service! Mijn tapijten zien er weer als nieuw uit. Aanrader!"</p>
+        <p><strong>- Mark de Groot, Ondernemer</strong></p>
+        <div class="stars">
+            &#9733;&#9733;&#9733;&#9733;&#9733; <!-- 5 sterren -->
+        </div>
+    </div>
+</section>
+
+                </div>
             </div>
-            <div class="testimonial">
-                <p>"De banken in mijn woonkamer zijn nooit zo schoon geweest. Goede service!"</p>
-                <p><strong>- Petra de Vries, Huishouden</strong></p>
-            </div>
-                        <div class="testimonial">
-                <p>"CleanCare heeft mijn auto grondig gereinigd, het lijkt wel nieuw!"</p>
-                <p><strong>- Zaki, Kenitra</strong></p>
         </section>
 
         <!-- Offerte Aanvraag Formulier -->
@@ -234,69 +288,94 @@
                     <option value="tapijtreiniging">Tapijtreiniging</option>
                     <option value="bank_reiniging">Banken Reiniging</option>
                     <option value="gordijnen_reiniging">Gordijnen Reiniging</option>
-                    <option value="vrachtwagen_reiniging">Vrachtwagen Interieurreiniging</option>
+                    <option value="meubel_reiniging">Meubels Reiniging</option>
                 </select><br>
 
-                <button type="submit">Verstuur Aanvraag</button>
+                <button type="submit">Verzend Offerte Aanvraag</button>
             </form>
         </section>
 
-        <!-- Sociale Media Sectie -->
+        <!-- Kaart Sectie -->
         <section class="section">
-            <h2>Volg Ons op Sociale Media</h2>
-            <div class="social-icons">
-                <a href="https://www.facebook.com" target="_blank">
-                    <img src="facebook-logo.png" alt="Facebook">
-                </a>
-                <a href="https://www.snapchat.com" target="_blank">
-                    <img src="snapchat-logo.png" alt="Snapchat">
-                </a>
-                <a href="https://www.tiktok.com" target="_blank">
-                    <img src="tiktok-logo.png" alt="TikTok">
-                </a>
-            </div>
+            <h2>Onze Locatie</h2>
+            <div id="map" style="height: 400px;"></div>
         </section>
 
-        <!-- Bedrijfsinformatie Sectie -->
-        <section class="section">
-            <h2>Contactinformatie</h2>
-            <p><strong>Locatie:</strong> Actief in Den Haag en omliggende regio</p>
-            <p><strong>Telefoon:</strong> 070-1234567</p>
-            <p><strong>Email:</strong> info@cleancare.nl</p>
-            <p><strong>Adres:</strong> Lange Vijverberg 20, 2513 AC Den Haag</p>
-            <p><strong>Specialisatie:</strong> Interieurreiniging voor auto's, tapijten, banken en andere meubels.</p>
-        </section>
-
-        <!-- Google Map -->
-        <section class="section">
-            <h2>Ons Kantoor in Den Haag</h2>
-            <div id="map" style="height: 400px; width: 100%;"></div>
-        </section>
+       <!-- FAQ Sectie -->
+<section class="section">
+    <h2>Veelgestelde Vragen (FAQ)</h2>
+    <div class="faq-item">
+        <h3>Hoe lang duurt het voordat mijn interieur gereinigd is?</h3>
+        <p>De duur van de reiniging hangt af van de grootte van het object en de staat ervan. Een auto-interieur kan meestal binnen 1,5 tot 2 uur gereinigd worden, terwijl een tapijt of bank tussen de 2 en 3 uur kan duren.</p>
     </div>
+    <div class="faq-item">
+        <h3>Kan ik een afspraak maken voor een reiniging op locatie?</h3>
+        <p>Ja, wij bieden reiniging aan op locatie in Den Haag en omliggende gebieden. Neem contact met ons op voor meer informatie of om een afspraak in te plannen.</p>
+    </div>
+    <div class="faq-item">
+        <h3>Hoe vaak moet ik mijn tapijt laten reinigen?</h3>
+        <p>Het wordt aanbevolen om uw tapijt minstens één keer per jaar grondig te laten reinigen, maar afhankelijk van het gebruik en de blootstelling aan vuil kan het vaker nodig zijn.</p>
+    </div>
+    <div class="faq-item">
+        <h3>Wat zijn de kosten voor een interieurreiniging?</h3>
+        <p>De kosten variëren afhankelijk van de service die je kiest. Neem contact met ons op voor een offerte op maat!</p>
+    </div>
+    <div class="faq-item">
+        <h3>Zijn de gebruikte schoonmaakmiddelen veilig?</h3>
+        <p>Ja, we gebruiken alleen milieuvriendelijke en niet-schadelijke schoonmaakmiddelen die veilig zijn voor zowel mensen als huisdieren.</p>
+    </div>
+</section>
 
-    <footer>&copy; 2025 CleanCare - Interieurreiniging van Auto's, Tapijten en Banken in Den Haag en omgeving</footer>
+    <!-- Footer Sectie -->
+    <footer>
+        <div class="contact-info">
+            <p><strong>Contactinformatie:</strong></p>
+            <p>Email: <a href="mailto:info@cleancare.nl">info@cleancare.nl</a></p>
+            <p>Telefoon: <a href="tel:+310612345678">+31 06 12345678</a></p>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/cleancare" target="_blank">
+                <img src="facebook-icon.png" alt="Facebook">
+            </a>
+            <a href="https://www.tiktok.com/@cleancare" target="_blank">
+                <img src="tiktok-icon.png" alt="TikTok">
+            </a>
+            <a href="https://www.snapchat.com/add/cleancare" target="_blank">
+                <img src="snapchat-icon.png" alt="Snapchat">
+            </a>
+        </div>
+        <p>&copy; 2025 CleanCare. Alle rechten voorbehouden.</p>
+    </footer>
 
-    <button id="backToTop" onclick="scrollToTop()">↑</button>
+    <button id="backToTop" onclick="window.scrollTo(0, 0)">↑</button>
 
     <!-- Google Maps -->
     <script>
         function initMap() {
-            var denHaag = {lat: 52.0705, lng: 4.3007};
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 12,
-                center: denHaag
+            var location = {lat: 52.070497, lng: 4.300700};  // Coördinaten voor Den Haag
+            var map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 14,
+                center: location
             });
             var marker = new google.maps.Marker({
-                position: denHaag,
+                position: location,
                 map: map,
-                title: 'CleanCare - Interieurreiniging in Den Haag'
+                title: "CleanCare"
             });
         }
-
-        function scrollToTop() {
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHmhy_XBxPvu20gI8gqUlXqmWAUQVd1hY&callback=initMap" async defer></script>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHmhy_XBxPvu20gI8gqUlXqmWAUQVd1hY&callback=initMap">
+    </script>
+
+    <script>
+        // FAQ Toggle script
+        document.querySelectorAll('.faq-item h3').forEach(item => {
+            item.addEventListener('click', () => {
+                item.parentElement.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
