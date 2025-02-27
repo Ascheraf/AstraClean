@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Interieurreiniging Den Haag, auto interieur, tapijtreiniging, meubelreiniging">
+    <meta name="robots" content="index, follow">
+    <title>AstraClean - Interieurreiniging in Den Haag</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            text-align: center;
+            color: #333;
+        }
+        header {
+            background: #3a8fbf; /* Blauw voor interieurreiniging */
+            color: white;
+            padding: 60px 20px;
+            font-size: 36px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        header .logo {
+            max-width: 150px;  /* Pas de grootte van het logo aan naar wens */
+            height: auto;  /* Zorg ervoor dat de hoogte in verhouding blijft */
+        }
+        .container {
+            padding: 60px 20px;
+        }
+        .section {
+            background: white;
+            padding: 40px;
+            margin: 30px auto;
+            width: 80%;
+            max-width: 900px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .section:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            color: #3a8fbf; /* Blauw */
+            font-size: 28px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .cta-button {
+            background-color: #3a8fbf; /* Blauw */
+            color: white;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #297f9a;
+        }
+        .testimonial {
+            background-color: #f9f9f9;
+            border-left: 5px solid #3a8fbf;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .testimonial p {
+            font-style: italic;
+            color: #555;
+        }
+        .testimonial strong {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #3a8fbf;
+        }
+        .form-inputs input,
+        .form-inputs select,
+        .form-inputs button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .form-inputs button {
+            background-color: #3a8fbf;
+            color: white;
+            cursor: pointer;
+        }
+        .form-inputs button:hover {
+            background-color: #297f9a;
+        }
+        .social-icons {
+            margin-top: 20px;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s;
+        }
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+        footer {
+            margin-top: 40px;
+            padding: 25px;
+            background: #222;
+            color: white;
+            font-size: 16px;
+        }
+        footer .contact-info {
+            margin-bottom: 20px;
+        }
+        footer .social-icons a {
+            margin: 0 15px;
+        }
+        #backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #3a8fbf;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #backToTop:hover {
+            background-color: #297f9a;
+        }
+        @media (max-width: 768px) {
+            header {
+                font-size: 28px;
+                padding: 40px 20px;
+            }
+            .section {
+                width: 100%;
+                padding: 20px;
+            }
+            .cta-button,
+            .form-inputs button {
+                padding: 20px;
+                font-size: 18px;
+            }
+            .social-icons img {
+                width: 35px;
+                height: 35px;
+            }
+            footer {
+                padding: 20px;
+                font-size: 14px;
+            }
+        }
+        @media (max-width: 480px) {
+            header {
+                font-size: 24px;
+                padding: 30px 15px;
+            }
+            .social-icons img {
+                width: 30px;
+                height: 30px;
+            }
+            footer {
+                padding: 15px;
+                font-size: 12px;
+            }
+        }
+        /* FAQ Styling */
+        .faq {
+            background: #f9f9f9;
+            padding: 40px;
+            margin: 30px auto;
+            width: 80%;
+            max-width: 900px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+        .faq h2 {
+            color: #3a8fbf;
+        }
+        .faq-item {
+            background: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .faq-item h3 {
+            font-size: 20px;
+            cursor: pointer;
+            margin: 0;
+        }
+        .faq-item p {
+            font-size: 16px;
+            color: #555;
+            display: none;
+        }
+        .faq-item.active p {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo-AstraClean.png" alt="AstraClean Logo" class="logo">
+        <span>Interieurreiniging van Auto's, Tapijten en Banken in Den Haag</span>
+    </header>
+
+    <div class="container">
+        <!-- Diensten Sectie -->
+        <section class="section">
+            <h2>Onze Specialiteit in Interieurreiniging</h2>
+            <p>- Grondige reiniging van tapijten en vloerkleden</p>
+            <p>- Dieptereiniging van banken en meubels</p>
+            <p>- Auto interieurreiniging (zittingen, vloermatten, dashboard, etc.)</p>
+            <p>- Reiniging van gordijnen en stoffen</p>
+        </section>
+
+<!-- Testimonials Sectie -->
+<section class="section">
+    <h2>Wat Onze Klanten Zeggen</h2>
+    <div class="testimonial">
+        <p>"AstraClean heeft mijn auto grondig gereinigd, het lijkt wel nieuw!"</p>
+        <p><strong>- Zakaria Schelde, Autoliefhebber</strong></p>
+        <div class="stars">
+            &#9733;&#9733;&#9733;&#9733;&#9733; <!-- 5 sterren -->
+        </div>
+    </div>
+    <div class="testimonial">
+        <p>"De banken in mijn woonkamer zijn nooit zo schoon geweest. Top service!"</p>
+        <p><strong>- Petra de Vries, inwoner Den Haag</strong></p>
+        <div class="stars">
+            &#9733;&#9733;&#9733;&#9733;&#9734; <!-- 4 sterren -->
+        </div>
+    </div>
+    <!-- Nieuwe 3e Testimonial -->
+    <div class="testimonial">
+        <p>"Uitstekende service! Mijn tapijten zien er weer als nieuw uit. Aanrader!"</p>
+        <p><strong>- Mark de Groot, Ondernemer</strong></p>
+        <div class="stars">
+            &#9733;&#9733;&#9733;&#9733;&#9733; <!-- 5 sterren -->
+        </div>
+    </div>
+</section>
+
+                </div>
+            </div>
+        </section>
+
+         <!-- Offerte Aanvraag Formulier -->
+        <section class="section">
+            <h2>Vraag Vandaag Nog een Offerte Aan</h2>
+            <form action="mailto:info@AstraClean.nl" method="post" enctype="text/plain" class="form-inputs">
+                <label for="name">Naam:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="phone">Telefoonnummer:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="service">Type Dienst:</label>
+                <select id="service" name="service" required>
+                    <option value="auto_interieur_reiniging">Auto Interieurreiniging</option>
+                    <option value="tapijtreiniging">Tapijtreiniging</option>
+                    <option value="bank_reiniging">Banken Reiniging</option>
+                    <option value="gordijnen_reiniging">Gordijnen Reiniging</option>
+                    <option value="meubel_reiniging">Meubels Reiniging</option>
+                </select>
+                
+                <label for="description">Korte omschrijving (max. 140 tekens):</label>
+                <input type="text" id="description" name="description" maxlength="140" required>
+
+                <button type="submit">Verzend Offerte Aanvraag</button>
+            </form>
+        </section>
+
+        <!-- Kaart Sectie -->
+        <section class="section">
+            <h2>Onze Locatie</h2>
+            <div id="map" style="height: 400px;"></div>
+        </section>
+
+       <!-- FAQ Sectie -->
+<section class="section">
+    <h2>Veelgestelde Vragen (FAQ)</h2>
+    <div class="faq-item">
+        <h3>Hoe lang duurt het voordat mijn interieur gereinigd is?</h3>
+        <p>De duur van de reiniging hangt af van de grootte van het object en de staat ervan. Een auto-interieur kan meestal binnen 1,5 tot 2 uur gereinigd worden, terwijl een tapijt of bank tussen de 2 en 3 uur kan duren.</p>
+    </div>
+    <div class="faq-item">
+        <h3>Kan ik een afspraak maken voor een reiniging op locatie?</h3>
+        <p>Ja, wij bieden reiniging aan op locatie in Den Haag en omliggende gebieden. Neem contact met ons op voor meer informatie of om een afspraak in te plannen.</p>
+    </div>
+    <div class="faq-item">
+        <h3>Hoe vaak moet ik mijn tapijt laten reinigen?</h3>
+        <p>Het wordt aanbevolen om uw tapijt minstens één keer per jaar grondig te laten reinigen, maar afhankelijk van het gebruik en de blootstelling aan vuil kan het vaker nodig zijn.</p>
+    </div>
+    <div class="faq-item">
+        <h3>Wat zijn de kosten voor een interieurreiniging?</h3>
+        <p>De kosten variëren afhankelijk van de service die je kiest. Neem contact met ons op voor een offerte op maat!</p>
+    </div>
+    <div class="faq-item">
+        <h3>Zijn de gebruikte schoonmaakmiddelen veilig?</h3>
+        <p>Ja, we gebruiken alleen milieuvriendelijke en niet-schadelijke schoonmaakmiddelen die veilig zijn voor zowel mensen als huisdieren.</p>
+    </div>
+</section>
+
+    <!-- Footer Sectie -->
+    <footer>
+        <div class="contact-info">
+            <p><strong>Contactinformatie:</strong></p>
+            <p>Email: <a href="mailto:info@AstraClean.nl">info@AstraClean.nl</a></p>
+            <p>Telefoon: <a href="tel:+310612345678">+31 06 12345678</a></p>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/AstraClean" target="_blank">
+                <img src="facebook-logo.png" alt="Facebook">
+            </a>
+            <a href="https://www.tiktok.com/@AstraClean" target="_blank">
+                <img src="tiktok-logo.png" alt="TikTok">
+            </a>
+            <a href="https://www.snapchat.com/add/AstraClean" target="_blank">
+                <img src="snapchat-logo.png" alt="Snapchat">
+            </a>
+        </div>
+        <p>&copy; 2025 AstraClean. Alle rechten voorbehouden.</p>
+    </footer>
+
+    <button id="backToTop" onclick="window.scrollTo(0, 0)">↑</button>
+
+    <!-- Google Maps -->
+    <script>
+        function initMap() {
+            var location = {lat: 52.070497, lng: 4.300700};  // Coördinaten voor Den Haag
+            var map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 14,
+                center: location
+            });
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map,
+                title: "AstraClean"
+            });
+        }
+    </script>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHmhy_XBxPvu20gI8gqUlXqmWAUQVd1hY&callback=initMap">
+    </script>
+
+    <script>
+        // FAQ Toggle script
+        document.querySelectorAll('.faq-item h3').forEach(item => {
+            item.addEventListener('click', () => {
+                item.parentElement.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
