@@ -242,10 +242,10 @@
 <section class="section">
     <h2>Wat Onze Klanten Zeggen</h2>
     <div class="testimonial">
-        <p>"AstraClean heeft mijn auto grondig gereinigd, het lijkt wel nieuw!"</p>
+        <p>"AstraClean heeft mijn auto grondig gereinigd, bedankt!"</p>
         <p><strong>- Zakaria Schelde, Autoliefhebber</strong></p>
         <div class="stars">
-            &#9733;&#9733;&#9733;&#9733;&#9733; <!-- 5 sterren -->
+            &#9733;&#9733;&#9733;&#9733;&#9733; <!-- 4 sterren -->
         </div>
     </div>
     <div class="testimonial">
@@ -282,14 +282,26 @@
                 <label for="email">E-mail:</label>
                 <input type="email" id="email" name="email" required>
 
-                <label for="service">Type Dienst:</label>
-                <select id="service" name="service" required>
-                    <option value="auto_interieur_reiniging">Auto Interieurreiniging</option>
-                    <option value="tapijtreiniging">Tapijtreiniging</option>
-                    <option value="bank_reiniging">Banken Reiniging</option>
-                    <option value="gordijnen_reiniging">Gordijnen Reiniging</option>
-                    <option value="meubel_reiniging">Meubels Reiniging</option>
-                </select>
+               <label for="service">Type Dienst:</label>
+<select id="service" name="service" required>
+    <optgroup label="Schoonmaakdiensten">
+        <option value="auto_interieur_reiniging">Auto Interieurreiniging</option>
+        <option value="tapijtreiniging">Tapijtreiniging</option>
+        <option value="bank_reiniging">Banken Reiniging</option>
+        <option value="gordijnen_reiniging">Gordijnen Reiniging</option>
+        <option value="meubel_reiniging">Meubels Reiniging</option>
+        <option value="vloer_reiniging">Vloer Reiniging</option>
+        <option value="keuken_reiniging">Keuken Reiniging</option>
+        <option value="badkamer_reiniging">Badkamer Reiniging</option>
+        <option value="raam_reiniging">Ramen Lappen</option>
+    </optgroup>
+    <optgroup label="Diversen">
+        <option value="verhuizing_schoonmaak">Eindschoonmaak bij Verhuizing</option>
+        <option value="kantoor_schoonmaak">Kantoor Schoonmaak</option>
+        <option value="bouw_schoonmaak">Bouwoplevering Schoonmaak</option>
+        <option value="desinfectie">Desinfectie Diensten</option>
+    </optgroup>
+</select>
                 
                 <label for="description">Korte omschrijving (max. 140 tekens):</label>
                 <input type="text" id="description" name="description" maxlength="140" required>
