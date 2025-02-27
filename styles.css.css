@@ -1,0 +1,257 @@
+/* Algemene stijlen */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    text-align: center;
+    color: #333;
+}
+
+/* Header */
+header {
+    background: #3a8fbf;
+    color: white;
+    padding: 60px 20px;
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+header .logo {
+    max-width: 150px;
+    height: auto;
+}
+
+.container {
+    padding: 60px 20px;
+}
+
+.section {
+    background: white;
+    padding: 40px;
+    margin: 30px auto;
+    width: 80%;
+    max-width: 900px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.section:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    color: #3a8fbf;
+    font-size: 28px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Call-to-action knop */
+.cta-button {
+    background-color: #3a8fbf;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #297f9a;
+}
+
+/* Testimonials */
+.testimonial {
+    background-color: #f9f9f9;
+    border-left: 5px solid #3a8fbf;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial p {
+    font-style: italic;
+    color: #555;
+}
+
+.testimonial strong {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #3a8fbf;
+}
+
+/* Formulier */
+.form-inputs input,
+.form-inputs select,
+.form-inputs button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.form-inputs button {
+    background-color: #3a8fbf;
+    color: white;
+    cursor: pointer;
+}
+
+.form-inputs button:hover {
+    background-color: #297f9a;
+}
+
+/* Social media iconen */
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-icons img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    margin-top: 40px;
+    padding: 25px;
+    background: #222;
+    color: white;
+    font-size: 16px;
+}
+
+footer .contact-info {
+    margin-bottom: 20px;
+}
+
+/* Back to top knop */
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #3a8fbf;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#backToTop:hover {
+    background-color: #297f9a;
+}
+
+/* FAQ */
+.faq {
+    background: #f9f9f9;
+    padding: 40px;
+    margin: 30px auto;
+    width: 80%;
+    max-width: 900px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.faq h2 {
+    color: #3a8fbf;
+}
+
+.faq-item {
+    background: #fff;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.faq-item h3 {
+    font-size: 20px;
+    cursor: pointer;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.faq-item h3::after {
+    content: " ▼";
+    font-size: 16px;
+    color: #3a8fbf;
+}
+
+.faq-item.active h3::after {
+    content: " ▲";
+}
+
+.faq-item p {
+    font-size: 16px;
+    color: #555;
+    display: none;
+}
+
+.faq-item.active p {
+    display: block;
+}
+
+/* Responsiviteit */
+@media (max-width: 768px) {
+    header {
+        font-size: 28px;
+        padding: 40px 20px;
+    }
+    .section {
+        width: 100%;
+        padding: 20px;
+    }
+    .social-icons img {
+        width: 35px;
+        height: 35px;
+    }
+    footer {
+        padding: 20px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 24px;
+        padding: 30px 15px;
+    }
+    .social-icons img {
+        width: 30px;
+        height: 30px;
+    }
+    footer {
+        padding: 15px;
+        font-size: 12px;
+    }
+}
