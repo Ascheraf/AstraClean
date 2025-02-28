@@ -224,6 +224,13 @@ footer .contact-info {
         font-size: 12px;
     }
 }
+.social-icons img {
+    width: 40px; /* Zorgt ervoor dat alle iconen dezelfde breedte hebben */
+    height: auto; /* Behoudt de originele verhoudingen */
+    display: inline-block; /* Zorgt voor nette uitlijning */
+    margin: 5px; /* Voegt een beetje ruimte toe tussen de iconen */
+}
+
 
 .contact-info {
     color: #3a8fbf;
