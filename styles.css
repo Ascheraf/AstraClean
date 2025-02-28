@@ -181,7 +181,7 @@ footer .contact-info {
     background-color: #297f9a;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 384px) {
     header {
         font-size: 24px;
         padding: 30px 15px;
