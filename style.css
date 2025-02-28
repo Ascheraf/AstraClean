@@ -202,10 +202,11 @@ footer .contact-info {
 }
 
 @media (max-width: 480px) {
-    header {
-        font-size: 24px;
-        padding: 30px 15px;
+    .logo {
+        max-width: 120px; /* Vergroot het logo */
+        height: auto; /* Zorg ervoor dat de verhoudingen behouden blijven */
     }
+}
     footer {
         padding: 15px;
         font-size: 12px;
