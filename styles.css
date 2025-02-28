@@ -31,7 +31,7 @@ header .logo {
 }
 
 header h1 {
-    font-size: 40px;
+    font-size: 32px;
     font-weight: bold;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
 }
@@ -199,7 +199,7 @@ footer .contact-info {
 }
 
 .footer-logos img {
-    max-width: 40px;
+    max-width: 35px;
     height: auto;
 }
 
