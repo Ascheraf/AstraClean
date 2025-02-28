@@ -206,13 +206,10 @@ footer .contact-info {
 }
 
 @media (max-width: 480px) {
-    .logo {
+    header .logo {
         max-width: 120px;
     }
 }
-    header .logo {
-        max-width: 140px;
-    }
     header h1 {
         font-size: 11.2px;
     }
