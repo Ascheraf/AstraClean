@@ -31,9 +31,15 @@ header .logo {
 }
 
 header h1 {
-    font-size: 14px;
+    font-size: 28px;
     font-weight: bold;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 18px;
+    }
 }
 
 .container {
