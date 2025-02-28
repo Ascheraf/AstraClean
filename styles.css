@@ -25,7 +25,7 @@ header {
 }
 
 header .logo {
-    max-width: 110px;
+    max-width: 132px;
     height: auto;
     margin-bottom: 10px;
 }
@@ -199,7 +199,7 @@ footer .contact-info {
 }
 
 .footer-logos img {
-    max-width: 15px;
+    max-width: 8px;
     height: auto;
 }
 
@@ -211,7 +211,7 @@ footer .contact-info {
         text-align: center;
     }
     header .logo {
-        max-width: 80px;
+        max-width: 96px;
     }
     header h1 {
         font-size: 18px;
