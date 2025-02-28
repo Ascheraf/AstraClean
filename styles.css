@@ -205,13 +205,11 @@ footer .contact-info {
     height: auto;
 }
 
-@media (max-width: 384px) {
-    header {
-        font-size: 24px;
-        padding: 30px 15px;
-        flex-direction: column;
-        text-align: center;
+@media (max-width: 480px) {
+    .logo {
+        max-width: 120px;
     }
+}
     header .logo {
         max-width: 140px;
     }
