@@ -183,28 +183,13 @@ footer .contact-info {
 
 @media (max-width: 768px) {
     header {
-        font-size: 28px;
-        padding: 40px 20px;
+        font-size: 24px;
+        padding: 30px 15px;
+        flex-direction: column;
+        text-align: center;
     }
-    .section {
-        width: 100%;
-        padding: 20px;
-    }
-    .cta-button,
-    .form-inputs button {
-        padding: 20px;
-        font-size: 18px;
-    }
-    footer {
-        padding: 20px;
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo {
-        max-width: 120px; /* Vergroot het logo */
-        height: auto; /* Zorg ervoor dat de verhoudingen behouden blijven */
+    header .logo {
+        max-width: 80px; /* Logo verkleinen */
     }
 }
     footer {
