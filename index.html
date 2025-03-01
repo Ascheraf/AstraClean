@@ -110,10 +110,13 @@
         </section>
 
         <!-- Kaart Sectie -->
-        <section class="section">
-            <h2>Onze Locatie</h2>
-            <div id="map" style="height: 400px;"></div>
-        </section>
+      <section class="section">
+    <h2>Onze Locatie</h2>
+    <a href="https://maps.app.goo.gl/FChkJxSKcfMjyxMH7" target="_blank">
+    <img src="images/map.jpg" alt="Locatie van AstraClean in Den Haag">
+</a>
+</section>
+
 
        <!-- FAQ Sectie -->
 <section class="section">
@@ -182,21 +185,7 @@
 
     <button id="backToTop" onclick="window.scrollTo(0, 0)">↑</button>
 
-    <!-- Google Maps -->
-    <script>
-        function initMap() {
-            var location = {lat: 52.070497, lng: 4.300700};  // Coördinaten voor Den Haag
-            var map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 14,
-                center: location
-            });
-            var marker = new google.maps.Marker({
-                position: location,
-                map: map,
-                title: "AstraClean"
-            });
-        }
-    </script>
+
 
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHmhy_XBxPvu20gI8gqUlXqmWAUQVd1hY&callback=initMap">
