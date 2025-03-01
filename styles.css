@@ -255,7 +255,10 @@ footer .contact-info {
 /* Inhoud van de pop-up */
 .modal-content {
     background-color: white;
-    margin: 15% auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     padding: 20px;
     border-radius: 10px;
     width: 80%;
