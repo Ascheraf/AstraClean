@@ -225,12 +225,16 @@ footer .contact-info {
     }
 }
 .social-icons img {
-    width: 40px; /* Zorgt ervoor dat alle iconen dezelfde breedte hebben */
-    height: auto; /* Behoudt de originele verhoudingen */
-    display: inline-block; /* Zorgt voor nette uitlijning */
-    margin: 5px; /* Voegt een beetje ruimte toe tussen de iconen */
+    width: 24px; /* Kleinere iconen */
+    height: auto;
+    display: inline-block;
+    margin: 3px; /* Minder ruimte tussen iconen */
+    transition: transform 0.3s; /* Smooth hover effect */
 }
 
+.social-icons img:hover {
+    transform: scale(1.1); /* Iets groter bij hover */
+}
 
 .contact-info {
     color: #3a8fbf;
