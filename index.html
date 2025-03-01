@@ -98,15 +98,15 @@
 <div class="g-recaptcha" data-sitekey="6LfxtuUqAAAAAEW5WIP1jQj5GiQPSnrY9GRZzPTA"></div>
                 <button type="submit" class="cta-button" aria-label="Verzend offerte aanvraag">Verzend Offerte</button>
             </form>
-            <!-- Modale pop-up -->
+<!-- Modale pop-up -->
 <div id="successModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <h3>Bedankt voor uw aanvraag!</h3>
+        <h3>Bedankt, <span id="userName"></span>!</h3>
         <p>Wij nemen binnen 24 uur contact met u op.</p>
     </div>
 </div>
-        
+
         </section>
 
         <!-- Kaart Sectie -->
@@ -242,6 +242,17 @@
 <script>
 document.getElementById("offerteForm").addEventListener("submit", function(event) {
     event.preventDefault(); // Voorkomt herladen van de pagina
+
+    // Haal de naam op uit het formulier
+    let naam = document.getElementById("naam").value;
+
+    // Controleer of er een naam is ingevuld
+    if (naam.trim() === "") {
+        naam = "bezoeker"; // Standaardnaam als er niets is ingevuld
+    }
+
+    // Toon de naam in de pop-up
+    document.getElementById("userName").textContent = naam;
 
     // Toon de pop-up
     document.getElementById("successModal").style.display = "block";
