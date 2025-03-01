@@ -241,23 +241,13 @@
 </script>
 <script>
 document.getElementById("offerteForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Voorkomt herladen van de pagina
-
-    // Haal de naam op uit het formulier
+    event.preventDefault();
     let naam = document.getElementById("name").value;
-
-    // Controleer of er een naam is ingevuld
     if (naam.trim() === "") {
-        naam = "bezoeker"; // Standaardnaam als er niets is ingevuld
+        naam = "bezoeker";
     }
-
-    // Toon de naam in de pop-up
     document.getElementById("userName").textContent = naam;
-
-    // Toon de pop-up
     document.getElementById("successModal").style.display = "block";
-
-    // Wis het formulier na verzenden
     document.getElementById("offerteForm").reset();
 });
 
@@ -274,6 +264,5 @@ window.addEventListener("click", function(event) {
     }
 });
 </script>
-
 </body>
 </html>
