@@ -225,10 +225,10 @@ footer .contact-info {
     }
 }
 .social-icons img {
-    width: 24px; /* Kleinere iconen */
+    width: 8px; /* Kleinere iconen */
     height: auto;
     display: inline-block;
-    margin: 3px; /* Minder ruimte tussen iconen */
+    margin: 2px; /* Minder ruimte tussen iconen */
     transition: transform 0.3s; /* Smooth hover effect */
 }
 
