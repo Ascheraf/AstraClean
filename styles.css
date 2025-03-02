@@ -218,8 +218,8 @@ footer .contact-info {
 }
 
 .social-icons img {
-    width: 8px; /* Kleinere iconen */
-    height: 8px;
+    width: 16px; /* Kleinere iconen */
+    height: 16px;
     display: inline-block;
     margin: 2px; /* Minder ruimte tussen iconen */
     transition: transform 0.3s; /* Smooth hover effect */
