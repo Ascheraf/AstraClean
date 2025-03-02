@@ -226,7 +226,7 @@ footer .contact-info {
 }
 .social-icons img {
     width: 8px; /* Kleinere iconen */
-    height: auto;
+    height: 8px;
     display: inline-block;
     margin: 2px; /* Minder ruimte tussen iconen */
     transition: transform 0.3s; /* Smooth hover effect */
