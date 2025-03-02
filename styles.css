@@ -197,15 +197,6 @@ footer .contact-info {
 #backToTop:hover {
     background-color: #297f9a;
 }
-
-.footer-logos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    margin-top: 20px;
-}
-
 .footer-logos img {
     max-width: 6px;
     height: 6px;
@@ -215,15 +206,17 @@ footer .contact-info {
     header .logo {
         max-width: 120px;
     }
-}
+
     header h1 {
         font-size: 24px;
     }
+
     footer {
         padding: 15px;
         font-size: 12px;
     }
 }
+
 .social-icons img {
     width: 8px; /* Kleinere iconen */
     height: 8px;
@@ -295,6 +288,7 @@ footer .contact-info {
     transform: scale(1.03);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
+
 @media (max-width: 600px) {
     .map-image {
         max-width: 100%;
