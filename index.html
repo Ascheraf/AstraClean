@@ -226,17 +226,6 @@
     });
 </script>
 <script>
-document.getElementById("offerteForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    let naam = document.getElementById("name").value;
-    if (naam.trim() === "") {
-        naam = "bezoeker";
-    }
-    document.getElementById("userName").textContent = naam;
-    document.getElementById("successModal").style.display = "block";
-    document.getElementById("offerteForm").reset();
-});
-
 // Sluit de pop-up bij klikken op "X"
 document.querySelector(".close").addEventListener("click", function() {
     document.getElementById("successModal").style.display = "none";
@@ -250,5 +239,7 @@ window.addEventListener("click", function(event) {
     }
 });
 </script>
+      <!-- Link naar je JavaScript-bestand -->
+  <script src="script.js"></script>
 </body>
 </html>
