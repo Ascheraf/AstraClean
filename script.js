@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-document.addEventListener('DOMContentLoaded', function () {
+    // FAQ Toggle script
     document.querySelectorAll(".faq-item h3").forEach(item => {
         item.addEventListener("click", function() {
             toggleFAQ(this);
