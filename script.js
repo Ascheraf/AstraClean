@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+document.addEventListener('DOMContentLoaded', function () {
     // FAQ Toggle script met toegankelijkheid
     document.querySelectorAll(".faq-item h3").forEach(item => {
         item.addEventListener("click", function() {
