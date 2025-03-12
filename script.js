@@ -25,6 +25,12 @@ document.addEventListener('DOMContentLoaded', function () {
         item.addEventListener("click", function() {
             toggleFAQ(this);
         });
+
+        item.addEventListener("keypress", function(event) {
+            if (event.key === "Enter" || event.key === " ") {
+                toggleFAQ(this);
+            }
+        });
     });
 
     function toggleFAQ(element) {
@@ -33,11 +39,9 @@ document.addEventListener('DOMContentLoaded', function () {
         let content = element.nextElementSibling;
 
         if (expanded) {
-            content.style.maxHeight = "0px";
-            content.style.overflow = "hidden";
+            content.style.display = "none";  // ❌ Dit was fout (maxHeight issue)
         } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-            content.style.overflow = "visible";
+            content.style.display = "block"; // ✅ Zorgt ervoor dat het element zichtbaar wordt
         }
     }
 });
