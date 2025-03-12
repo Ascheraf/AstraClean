@@ -47,10 +47,3 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 });
-
-document.querySelector('form[name="offerte"]').addEventListener("submit", function(event) {
-    event.preventDefault(); // voorkom standaard verzending
-    let userName = document.getElementById("name").value;
-    document.getElementById("userName").innerText = userName;
-    document.getElementById("successModal").style.display = "block";
-});
