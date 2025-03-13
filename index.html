@@ -59,20 +59,10 @@
          <!-- Offerte Aanvraag Formulier -->
         <section class="section">
             <h2>Vraag een Offerte Aan</h2>
-            <!-- A hidden form that Netlify can detect -->
-            <form name="offerte" netlify netlify-honeypot="bot-field" hidden>
-                <input type="text" name="name" />
-                <input type="tel" name="phone" />
-                <input type="email" name="email" />
-                <select name="service"></select>
-                <input type="text" name="description" />
-                <input name="g-recaptcha-response" type="hidden">
-            </form>
-            
-            <!-- The visible form -->
-            <form name="offerte" method="POST" action="/?success=true" data-netlify="true" data-netlify-recaptcha="true" data-netlify-honeypot="bot-field" class="form-inputs">
+            <!-- The form -->
+            <form name="offerte" method="POST" data-netlify="true" data-netlify-recaptcha="true" data-netlify-honeypot="bot-field">
                 <input type="hidden" name="form-name" value="offerte" />
-                <p class="hidden">
+                <p style="display: none">
                     <label>Don't fill this out if you're human: <input name="bot-field" /></label>
                 </p>
 
@@ -108,9 +98,9 @@
                 </select>
 
                 <label for="description">Korte omschrijving (max. 140 tekens):</label>
-                <input type="text" id="description" name="description" maxlength="140" required>
+                <textarea id="description" name="description" maxlength="140" required></textarea>
 
-                <div class="g-recaptcha" data-sitekey="6LfxtuUqAAAAAEW5WIP1jQj5GiQPSnrY9GRZzPTA"></div>
+                <div data-netlify-recaptcha="true"></div>
                 <button type="submit" class="cta-button" aria-label="Verzend offerte aanvraag">Verzend Offerte</button>
             </form>
 <!-- Modale pop-up -->
