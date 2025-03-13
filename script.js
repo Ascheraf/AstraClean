@@ -134,23 +134,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
             try {
                 // Get form data
-                const formData = new FormData(this.elements.form);
+                const form = this.elements.form;
+                const formData = new FormData(form);
 
                 // Submit to Netlify Forms
-                const response = await fetch('/', {
+                fetch(form.action, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: new URLSearchParams(formData).toString()
-                });
-
-                if (response.ok) {
+                    body: formData
+                }).then(() => {
                     // Show success modal with user's name
                     const userName = document.getElementById('name').value;
                     document.getElementById('userName').textContent = userName;
                     new ModalHandler(this.elements.modal).show();
                     
                     // Reset form
-                    this.elements.form.reset();
+                    form.reset();
                     this.elements.charCount.textContent = '140 tekens resterend';
                     
                     // Clear all error states
@@ -159,13 +157,16 @@ document.addEventListener('DOMContentLoaded', function () {
                         const errorMessage = group.querySelector('.error-message');
                         if (input) this.clearError(input, errorMessage);
                     });
-                } else {
-                    throw new Error('Er is een fout opgetreden bij het verzenden van het formulier');
-                }
+                }).catch(error => {
+                    console.error('Form submission error:', error);
+                    alert('Er is een fout opgetreden. Probeer het later opnieuw.');
+                }).finally(() => {
+                    this.elements.submitButton.disabled = false;
+                    this.loadingIndicator.style.display = 'none';
+                });
             } catch (error) {
                 console.error('Form submission error:', error);
-                alert(error.message || 'Er is een fout opgetreden. Probeer het later opnieuw.');
-            } finally {
+                alert('Er is een fout opgetreden. Probeer het later opnieuw.');
                 this.elements.submitButton.disabled = false;
                 this.loadingIndicator.style.display = 'none';
             }
