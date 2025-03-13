@@ -251,6 +251,38 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.remove('loading');
 });
 
+// FAQ Functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const answer = question.nextElementSibling;
+            const isExpanded = question.getAttribute('aria-expanded') === 'true';
+            
+            // Close all other answers
+            faqQuestions.forEach(q => {
+                if (q !== question && q.getAttribute('aria-expanded') === 'true') {
+                    q.setAttribute('aria-expanded', 'false');
+                    q.nextElementSibling.hidden = true;
+                }
+            });
+
+            // Toggle current answer
+            question.setAttribute('aria-expanded', !isExpanded);
+            answer.hidden = isExpanded;
+        });
+
+        // Keyboard navigation
+        question.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                question.click();
+            }
+        });
+    });
+});
+
 // Touch interaction handling
 let touchStartY = 0;
 let touchEndY = 0;
@@ -827,10 +859,28 @@ document.addEventListener('DOMContentLoaded', function () {
 // Form validation utilities
 const validators = {
     required: (value) => value.trim() !== '',
-    email: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
-    phone: (value) => /^(?:\+31|0)\d{9}$/.test(value.replace(/[\s-]/g, '')),
+    email: (value) => {
+        // Enhanced email validation
+        const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+        return emailRegex.test(value.trim());
+    },
+    phone: (value) => {
+        // Enhanced Dutch phone number validation
+        const cleanNumber = value.replace(/[\s-]/g, '');
+        const mobileRegex = /^(?:\+31|0)6[1-9][0-9]{7}$/;
+        const landlineRegex = /^(?:\+31|0)[1-9][0-9]{8}$/;
+        return mobileRegex.test(cleanNumber) || landlineRegex.test(cleanNumber);
+    },
     minLength: (value, length) => value.trim().length >= length,
-    maxLength: (value, length) => value.trim().length <= length
+    maxLength: (value, length) => value.trim().length <= length,
+    sanitize: (value) => {
+        // Basic XSS prevention
+        return value
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+    }
 };
 
 // Form validation rules
@@ -839,6 +889,7 @@ const validationRules = {
         required: true,
         minLength: 2,
         maxLength: 50,
+        sanitize: true,
         message: {
             required: 'Vul uw naam in',
             minLength: 'Naam moet minimaal 2 karakters bevatten',
@@ -848,17 +899,21 @@ const validationRules = {
     email: {
         required: true,
         email: true,
+        maxLength: 100,
+        sanitize: true,
         message: {
             required: 'Vul uw e-mailadres in',
-            email: 'Vul een geldig e-mailadres in'
+            email: 'Vul een geldig e-mailadres in',
+            maxLength: 'E-mailadres mag maximaal 100 karakters bevatten'
         }
     },
     telefoon: {
         required: true,
         phone: true,
+        sanitize: true,
         message: {
             required: 'Vul uw telefoonnummer in',
-            phone: 'Vul een geldig Nederlands telefoonnummer in'
+            phone: 'Vul een geldig Nederlands mobiel of vast nummer in (bijv. 06-12345678 of 010-1234567)'
         }
     },
     dienst: {
@@ -871,6 +926,7 @@ const validationRules = {
         required: true,
         minLength: 10,
         maxLength: 500,
+        sanitize: true,
         message: {
             required: 'Vul uw bericht in',
             minLength: 'Bericht moet minimaal 10 karakters bevatten',
@@ -879,38 +935,118 @@ const validationRules = {
     }
 };
 
-// Form validation handler
 class FormValidator {
     constructor(form) {
         this.form = form;
         this.errors = new Map();
         this.setupValidation();
+        this.setupCharacterCounter();
     }
 
     setupValidation() {
         const fields = this.form.querySelectorAll('input, textarea, select');
         
         fields.forEach(field => {
-            // Real-time validation
-            field.addEventListener('input', () => {
+            // Real-time validation with debounce
+            field.addEventListener('input', debounce(() => {
                 this.validateField(field);
                 this.updateFieldUI(field);
-            });
+                this.updateCharacterCount(field);
+            }, 300));
 
-            // Blur validation
+            // Immediate validation on blur
             field.addEventListener('blur', () => {
                 this.validateField(field);
                 this.updateFieldUI(field);
             });
+
+            // Initial character count
+            this.updateCharacterCount(field);
         });
 
-        // Form submission validation
-        this.form.addEventListener('submit', (e) => {
+        // Form submission
+        this.form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
             if (!this.validateForm()) {
-                e.preventDefault();
                 this.showFormErrors();
+                return;
+            }
+
+            // Sanitize all inputs before submission
+            const formData = new FormData(this.form);
+            for (const [name, value] of formData.entries()) {
+                if (validationRules[name]?.sanitize) {
+                    formData.set(name, validators.sanitize(value));
+                }
+            }
+
+            try {
+                // Get form data
+                const form = this.form;
+                const formData = new FormData(form);
+
+                // Submit to Netlify Forms
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData
+                }).then(() => {
+                    // Show success modal with user's name
+                    const userName = document.getElementById('name').value;
+                    document.getElementById('userName').textContent = userName;
+                    new ModalHandler(this.elements.modal).show();
+                    
+                    // Reset form
+                    form.reset();
+                    this.elements.charCount.textContent = '140 tekens resterend';
+                    
+                    // Clear all error states
+                    this.elements.formGroups.forEach(group => {
+                        const input = group.querySelector('input, select, textarea');
+                        const errorMessage = group.querySelector('.error-message');
+                        if (input) this.clearError(input, errorMessage);
+                    });
+                }).catch(error => {
+                    console.error('Form submission error:', error);
+                    alert('Er is een fout opgetreden. Probeer het later opnieuw.');
+                }).finally(() => {
+                    this.elements.submitButton.disabled = false;
+                    this.loadingIndicator.style.display = 'none';
+                });
+            } catch (error) {
+                console.error('Form submission error:', error);
+                alert('Er is een fout opgetreden. Probeer het later opnieuw.');
+                this.elements.submitButton.disabled = false;
+                this.loadingIndicator.style.display = 'none';
             }
         });
+    }
+
+    setupCharacterCounter() {
+        const textInputs = this.form.querySelectorAll('textarea, input[type="text"]');
+        textInputs.forEach(input => {
+            if (validationRules[input.name]?.maxLength) {
+                const counter = document.createElement('div');
+                counter.className = 'character-counter';
+                input.parentNode.appendChild(counter);
+                this.updateCharacterCount(input);
+            }
+        });
+    }
+
+    updateCharacterCount(field) {
+        const rules = validationRules[field.name];
+        if (!rules?.maxLength) return;
+
+        const counter = field.parentNode.querySelector('.character-counter');
+        if (!counter) return;
+
+        const current = field.value.length;
+        const max = rules.maxLength;
+        const remaining = max - current;
+
+        counter.textContent = `${remaining} karakters over`;
+        counter.className = `character-counter ${remaining < 20 ? 'warning' : ''}`;
     }
 
     validateField(field) {
@@ -925,7 +1061,7 @@ class FormValidator {
 
         // Check each validation rule
         for (const [rule, enabled] of Object.entries(rules)) {
-            if (rule === 'message') continue;
+            if (rule === 'message' || rule === 'sanitize') continue;
             
             if (enabled && validators[rule]) {
                 const validatorFn = validators[rule];
@@ -956,6 +1092,8 @@ class FormValidator {
         const errorMessage = this.errors.get(field.name);
 
         errorElement.className = 'error-message';
+        errorElement.setAttribute('role', 'alert');
+        errorElement.setAttribute('aria-live', 'polite');
         
         if (errorMessage) {
             field.setAttribute('aria-invalid', 'true');
@@ -969,6 +1107,7 @@ class FormValidator {
             field.removeAttribute('aria-invalid');
             field.classList.remove('invalid');
             errorElement.style.display = 'none';
+            errorElement.textContent = '';
         }
     }
 
@@ -980,19 +1119,17 @@ class FormValidator {
             if (!this.validateField(field)) {
                 isValid = false;
             }
+            this.updateFieldUI(field);
         });
 
         return isValid;
     }
 
     showFormErrors() {
-        const fields = this.form.querySelectorAll('input, textarea, select');
-        fields.forEach(field => this.updateFieldUI(field));
-
-        // Focus first invalid field
         const firstInvalidField = this.form.querySelector('[aria-invalid="true"]');
         if (firstInvalidField) {
             firstInvalidField.focus();
+            firstInvalidField.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     }
 }
