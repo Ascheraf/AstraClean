@@ -251,36 +251,38 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.remove('loading');
 });
 
-// FAQ Functionality
-document.addEventListener('DOMContentLoaded', () => {
-    const faqQuestions = document.querySelectorAll('.faq-question');
+// FAQ Functionaliteit
+class FAQHandler {
+    constructor() {
+        this.faqItems = document.querySelectorAll('.faq-item');
+        this.init();
+    }
 
-    faqQuestions.forEach(question => {
-        question.addEventListener('click', () => {
-            const answer = question.nextElementSibling;
-            const isExpanded = question.getAttribute('aria-expanded') === 'true';
-            
-            // Close all other answers
-            faqQuestions.forEach(q => {
-                if (q !== question && q.getAttribute('aria-expanded') === 'true') {
-                    q.setAttribute('aria-expanded', 'false');
-                    q.nextElementSibling.hidden = true;
-                }
-            });
-
-            // Toggle current answer
-            question.setAttribute('aria-expanded', !isExpanded);
-            answer.hidden = isExpanded;
+    init() {
+        this.faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => this.toggleFAQ(item));
         });
+    }
 
-        // Keyboard navigation
-        question.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                question.click();
+    toggleFAQ(item) {
+        const isExpanded = item.getAttribute('aria-expanded') === 'true';
+        
+        // Sluit alle andere items
+        this.faqItems.forEach(otherItem => {
+            if (otherItem !== item) {
+                otherItem.setAttribute('aria-expanded', 'false');
             }
         });
-    });
+
+        // Toggle het geklikte item
+        item.setAttribute('aria-expanded', !isExpanded);
+    }
+}
+
+// Initialiseer FAQ handler
+document.addEventListener('DOMContentLoaded', () => {
+    new FAQHandler();
 });
 
 // Touch interaction handling
@@ -1218,4 +1220,55 @@ class FormValidator {
 document.addEventListener('DOMContentLoaded', () => {
     const forms = document.querySelectorAll('form[data-netlify="true"]');
     forms.forEach(form => new FormValidator(form));
+});
+
+// Cookie Consent Banner
+class CookieConsent {
+    constructor() {
+        this.banner = document.getElementById('cookieBanner');
+        this.acceptButton = document.getElementById('cookieAccept');
+        this.declineButton = document.getElementById('cookieDecline');
+        this.init();
+    }
+
+    init() {
+        // Check if consent is already given
+        if (!localStorage.getItem('cookieConsent')) {
+            this.showBanner();
+            this.setupEventListeners();
+        }
+    }
+
+    showBanner() {
+        // Small delay to ensure smooth animation
+        setTimeout(() => {
+            this.banner.classList.add('visible');
+        }, 100);
+    }
+
+    setupEventListeners() {
+        this.acceptButton.addEventListener('click', () => this.acceptCookies());
+        this.declineButton.addEventListener('click', () => this.declineCookies());
+    }
+
+    acceptCookies() {
+        localStorage.setItem('cookieConsent', 'accepted');
+        this.hideBanner();
+        // Initialize analytics here
+    }
+
+    declineCookies() {
+        localStorage.setItem('cookieConsent', 'declined');
+        this.hideBanner();
+        // Disable non-essential cookies here
+    }
+
+    hideBanner() {
+        this.banner.classList.remove('visible');
+    }
+}
+
+// Initialiseer cookie consent
+document.addEventListener('DOMContentLoaded', () => {
+    new CookieConsent();
 });
