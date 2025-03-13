@@ -8,6 +8,7 @@
     <meta name="robots" content="index, follow">
     <title>AstraClean - Interieurreiniging in Den Haag</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="perf-monitor.js"></script>
 </head>
 <body>
     <header>
@@ -115,8 +116,10 @@
 <div id="successModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <h3>Bedankt, <span id="userName"></span>!</h3>
-        <p>Wij nemen binnen 24 uur contact met u op.</p>
+        <h3>Bedankt voor uw aanvraag, <span id="userName"></span>! 🌟</h3>
+        <p>We hebben uw offerte aanvraag goed ontvangen.</p>
+        <p>Binnen 24 uur nemen we contact met u op om uw wensen te bespreken en een passende offerte te maken.</p>
+        <p>Heeft u dringende vragen? Bel ons gerust op <a href="tel:+31648263747">06-48263747</a>.</p>
     </div>
 </div>
 
@@ -202,5 +205,25 @@
 
       <!-- Link naar je JavaScript-bestand -->
   <script src="script.js"></script>
+  <script>
+        // Initialize performance monitoring
+        document.addEventListener('DOMContentLoaded', () => {
+            // Start main performance monitoring
+            PerfMonitor.start();
+            
+            // Start mobile-specific monitoring
+            if (/Mobi|Android/i.test(navigator.userAgent)) {
+                PerfMonitor.mobile.start();
+            }
+
+            // Log performance summary every 5 minutes
+            setInterval(() => {
+                console.log('Performance Summary:', PerfMonitor.getSummary());
+                if (/Mobi|Android/i.test(navigator.userAgent)) {
+                    console.log('Mobile Performance:', PerfMonitor.mobile.getMobileSummary());
+                }
+            }, 300000);
+        });
+    </script>
 </body>
 </html>
