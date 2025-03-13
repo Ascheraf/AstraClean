@@ -1,10 +1,49 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Formulier bevestiging
-    document.querySelector('form[name="offerte"]').addEventListener("submit", function(event) {
+    const form = document.querySelector('form[name="offerte"]');
+    
+    form.addEventListener("submit", async function(event) {
         event.preventDefault();
-        let userName = document.getElementById("name").value;
-        document.getElementById("userName").innerText = userName;
-        document.getElementById("successModal").style.display = "block";
+        
+        // Toon loading state
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalText = submitButton.textContent;
+        submitButton.textContent = 'Verzenden...';
+        submitButton.disabled = true;
+
+        try {
+            // Verzamel form data
+            const formData = new FormData(form);
+            
+            // Verstuur formulier
+            const response = await fetch('/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams(formData).toString()
+            });
+
+            if (response.ok) {
+                // Toon success modal
+                const userName = document.getElementById("name").value;
+                document.getElementById("userName").innerText = userName;
+                document.getElementById("successModal").style.display = "block";
+                
+                // Reset formulier
+                form.reset();
+                grecaptcha.reset();
+            } else {
+                throw new Error('Er is iets misgegaan bij het verzenden van het formulier.');
+            }
+        } catch (error) {
+            alert('Er is een fout opgetreden bij het verzenden van het formulier. Probeer het later opnieuw.');
+            console.error('Form submission error:', error);
+        } finally {
+            // Reset button state
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+        }
     });
 
     // Sluit de pop-up bij klikken op "X"
@@ -39,9 +78,9 @@ document.addEventListener('DOMContentLoaded', function () {
         let content = element.nextElementSibling;
 
         if (expanded) {
-            content.style.display = "none";  // ❌ Dit was fout (maxHeight issue)
+            content.style.display = "none";
         } else {
-            content.style.display = "block"; // ✅ Zorgt ervoor dat het element zichtbaar wordt
+            content.style.display = "block";
         }
     }
 });
