@@ -2,17 +2,29 @@
   publish = "/"
 
 [[redirects]]
-  from = "/success"
-  to = "/success.html"
-  status = 200
-
-[[redirects]]
-  from = "/*"
+  from = "/"
   to = "/index.html"
   status = 200
+  force = true
+
+[[redirects]]
+  from = "/?success=true"
+  to = "/index.html"
+  status = 200
+  force = true
 
 [forms]
   offerte = "Offerte Aanvraag"
+
+[forms.offerte]
+  fields = [
+    { name = "name", label = "Naam", required = true },
+    { name = "phone", label = "Telefoonnummer", required = true },
+    { name = "email", label = "E-mail", required = true },
+    { name = "service", label = "Type Dienst", required = true },
+    { name = "description", label = "Omschrijving", required = true }
+  ]
+  success_url = "/?success=true"
 
 [build.processing]
   skip_processing = false

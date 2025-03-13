@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Form validation and submission handling
     const form = document.querySelector('form[name="offerte"]');
     
-    // Form validation function
     function validateForm() {
         const name = document.getElementById("name").value.trim();
         const phone = document.getElementById("phone").value.trim();
@@ -79,11 +77,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     form.addEventListener("submit", function(event) {
-        event.preventDefault();
         resetFormErrors();
 
         // Validate form
         if (!validateForm()) {
+            event.preventDefault();
             return;
         }
 
@@ -91,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (typeof grecaptcha !== 'undefined') {
             const recaptchaResponse = grecaptcha.getResponse();
             if (!recaptchaResponse) {
+                event.preventDefault();
                 const recaptchaError = document.createElement('div');
                 recaptchaError.className = 'error-message';
                 recaptchaError.textContent = 'Even checken of u een mens bent! Vink de reCAPTCHA aan.';
@@ -102,46 +101,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
+        // Show submitting state
         const submitButton = form.querySelector('button[type="submit"]');
         const originalText = submitButton.textContent;
         submitButton.textContent = 'Verzenden...';
         submitButton.disabled = true;
 
-        // Submit form using Fetch API
-        fetch(form.action, {
-            method: 'POST',
-            body: new FormData(form)
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            // Show success modal
-            const userName = document.getElementById("name").value;
-            document.getElementById("userName").innerText = userName;
-            document.getElementById("successModal").style.display = "block";
-            
-            // Reset form and reCAPTCHA
-            form.reset();
-            if (typeof grecaptcha !== 'undefined') {
-                grecaptcha.reset();
-            }
-        })
-        .catch(error => {
-            // Show error message
-            const errorDiv = document.createElement('div');
-            errorDiv.className = 'error-message';
-            errorDiv.textContent = 'Sorry, er ging iets mis bij het verzenden. Probeer het nog een keer of neem telefonisch contact met ons op.';
-            errorDiv.style.color = '#dc3545';
-            errorDiv.style.fontSize = '0.8em';
-            errorDiv.style.marginTop = '4px';
-            form.insertBefore(errorDiv, form.firstChild);
-        })
-        .finally(() => {
-            // Reset button state
-            submitButton.textContent = originalText;
-            submitButton.disabled = false;
-        });
+        // Let Netlify handle the submission
+        // The form will be submitted normally, and Netlify will handle the redirect
     });
 
     // Input validation on blur
@@ -150,6 +117,19 @@ document.addEventListener('DOMContentLoaded', function () {
             resetFormErrors();
             validateForm();
         });
+    });
+
+    // Handle success state if redirected back
+    if (window.location.search.includes('success=true')) {
+        const userName = localStorage.getItem('formUserName') || 'gewaardeerde klant';
+        document.getElementById("userName").innerText = userName;
+        document.getElementById("successModal").style.display = "block";
+        localStorage.removeItem('formUserName'); // Clean up
+    }
+
+    // Store name before submission
+    document.getElementById('name').addEventListener('change', function(e) {
+        localStorage.setItem('formUserName', e.target.value);
     });
 
     // Modal handling
