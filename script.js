@@ -59,6 +59,90 @@ const perfUtils = {
     }
 };
 
+// Optimized form submission handler
+async function handleFormSubmission(form) {
+    const submitButton = form.querySelector('button[type="submit"]');
+    const loadingSpinner = submitButton.querySelector('.loading');
+    
+    try {
+        // Show loading state
+        submitButton.disabled = true;
+        loadingSpinner.style.display = 'block';
+        
+        const formData = new FormData(form);
+        
+        // Encode data for Netlify
+        const urlEncodedData = new URLSearchParams(formData).toString();
+        
+        const response = await fetch('/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: urlEncodedData
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        // Success handling
+        showMessage('Bedankt! Uw aanvraag is succesvol verzonden.', 'success');
+        form.reset();
+        
+        // Redirect to success page if specified
+        if (form.getAttribute('action')) {
+            window.location.href = form.getAttribute('action');
+        }
+    } catch (error) {
+        console.error('Form submission error:', error);
+        showMessage('Er is iets misgegaan. Probeer het later opnieuw.', 'error');
+    } finally {
+        // Reset form state
+        submitButton.disabled = false;
+        loadingSpinner.style.display = 'none';
+    }
+}
+
+// Message display function
+function showMessage(message, type = 'success') {
+    // Remove any existing messages
+    const existingMessages = document.querySelectorAll('.message');
+    existingMessages.forEach(msg => msg.remove());
+    
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message message-${type}`;
+    messageDiv.setAttribute('role', 'alert');
+    messageDiv.setAttribute('aria-live', 'polite');
+    messageDiv.textContent = message;
+    
+    // Add message to DOM
+    document.body.appendChild(messageDiv);
+    
+    // Ensure message is visible
+    requestAnimationFrame(() => {
+        messageDiv.classList.add('visible');
+    });
+    
+    // Remove message after delay
+    setTimeout(() => {
+        messageDiv.classList.remove('visible');
+        setTimeout(() => messageDiv.remove(), 300);
+    }, 5000);
+}
+
+// Initialize form handling
+document.addEventListener('DOMContentLoaded', () => {
+    const forms = document.querySelectorAll('form[data-netlify="true"]');
+    
+    forms.forEach(form => {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            await handleFormSubmission(form);
+        });
+    });
+});
+
 // Optimized scroll handler
 const scrollHandler = perfUtils.throttle(() => {
     // Update scroll-based animations only if needed
@@ -166,51 +250,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Remove loading class after initial load
     document.body.classList.remove('loading');
 });
-
-// Optimized form submission handler
-async function handleFormSubmission(form) {
-    const formData = new FormData(form);
-    
-    try {
-        const response = await fetch(form.action, {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
-            }
-        });
-
-        if (!response.ok) throw new Error('Network response was not ok');
-        
-        showMessage('Formulier succesvol verzonden!', 'success');
-        form.reset();
-    } catch (error) {
-        showMessage('Er is iets misgegaan. Probeer het later opnieuw.', 'error');
-        console.error('Form submission error:', error);
-    }
-}
-
-// Optimized message display
-function showMessage(message, type = 'success') {
-    const messageDiv = document.createElement('div');
-    messageDiv.className = `message message-${type}`;
-    messageDiv.setAttribute('role', 'alert');
-    messageDiv.textContent = message;
-    
-    requestAnimationFrame(() => {
-        document.body.appendChild(messageDiv);
-        // Force reflow
-        messageDiv.offsetHeight;
-        messageDiv.classList.add('visible');
-        
-        setTimeout(() => {
-            messageDiv.classList.remove('visible');
-            messageDiv.addEventListener('transitionend', () => {
-                messageDiv.remove();
-            }, { once: true });
-        }, 5000);
-    });
-}
 
 // Touch interaction handling
 let touchStartY = 0;
@@ -325,30 +364,6 @@ document.querySelector('form[name="offerte"]').addEventListener('submit', async 
         loadingIndicator.style.display = 'none';
     }
 });
-
-// Message display function
-function showMessage(message, type = 'success') {
-    const messageDiv = document.createElement('div');
-    messageDiv.className = `message message-${type}`;
-    messageDiv.setAttribute('role', 'alert');
-    messageDiv.textContent = message;
-    
-    // Add to page
-    document.querySelector('main').appendChild(messageDiv);
-    
-    // Animate in
-    requestAnimationFrame(() => {
-        messageDiv.style.opacity = '1';
-        messageDiv.style.transform = 'translateY(0)';
-    });
-    
-    // Remove after delay
-    setTimeout(() => {
-        messageDiv.style.opacity = '0';
-        messageDiv.style.transform = 'translateY(-20px)';
-        setTimeout(() => messageDiv.remove(), 300);
-    }, 5000);
-}
 
 document.addEventListener('DOMContentLoaded', function () {
     // Cache DOM elements
@@ -807,4 +822,183 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+});
+
+// Form validation utilities
+const validators = {
+    required: (value) => value.trim() !== '',
+    email: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
+    phone: (value) => /^(?:\+31|0)\d{9}$/.test(value.replace(/[\s-]/g, '')),
+    minLength: (value, length) => value.trim().length >= length,
+    maxLength: (value, length) => value.trim().length <= length
+};
+
+// Form validation rules
+const validationRules = {
+    naam: {
+        required: true,
+        minLength: 2,
+        maxLength: 50,
+        message: {
+            required: 'Vul uw naam in',
+            minLength: 'Naam moet minimaal 2 karakters bevatten',
+            maxLength: 'Naam mag maximaal 50 karakters bevatten'
+        }
+    },
+    email: {
+        required: true,
+        email: true,
+        message: {
+            required: 'Vul uw e-mailadres in',
+            email: 'Vul een geldig e-mailadres in'
+        }
+    },
+    telefoon: {
+        required: true,
+        phone: true,
+        message: {
+            required: 'Vul uw telefoonnummer in',
+            phone: 'Vul een geldig Nederlands telefoonnummer in'
+        }
+    },
+    dienst: {
+        required: true,
+        message: {
+            required: 'Selecteer een dienst'
+        }
+    },
+    bericht: {
+        required: true,
+        minLength: 10,
+        maxLength: 500,
+        message: {
+            required: 'Vul uw bericht in',
+            minLength: 'Bericht moet minimaal 10 karakters bevatten',
+            maxLength: 'Bericht mag maximaal 500 karakters bevatten'
+        }
+    }
+};
+
+// Form validation handler
+class FormValidator {
+    constructor(form) {
+        this.form = form;
+        this.errors = new Map();
+        this.setupValidation();
+    }
+
+    setupValidation() {
+        const fields = this.form.querySelectorAll('input, textarea, select');
+        
+        fields.forEach(field => {
+            // Real-time validation
+            field.addEventListener('input', () => {
+                this.validateField(field);
+                this.updateFieldUI(field);
+            });
+
+            // Blur validation
+            field.addEventListener('blur', () => {
+                this.validateField(field);
+                this.updateFieldUI(field);
+            });
+        });
+
+        // Form submission validation
+        this.form.addEventListener('submit', (e) => {
+            if (!this.validateForm()) {
+                e.preventDefault();
+                this.showFormErrors();
+            }
+        });
+    }
+
+    validateField(field) {
+        const name = field.name;
+        const value = field.value;
+        const rules = validationRules[name];
+
+        if (!rules) return true;
+
+        let isValid = true;
+        let errorMessage = '';
+
+        // Check each validation rule
+        for (const [rule, enabled] of Object.entries(rules)) {
+            if (rule === 'message') continue;
+            
+            if (enabled && validators[rule]) {
+                const validatorFn = validators[rule];
+                const isRuleValid = typeof enabled === 'boolean' 
+                    ? validatorFn(value)
+                    : validatorFn(value, enabled);
+
+                if (!isRuleValid) {
+                    isValid = false;
+                    errorMessage = rules.message[rule];
+                    break;
+                }
+            }
+        }
+
+        if (!isValid) {
+            this.errors.set(name, errorMessage);
+        } else {
+            this.errors.delete(name);
+        }
+
+        return isValid;
+    }
+
+    updateFieldUI(field) {
+        const formGroup = field.closest('.form-group');
+        const errorElement = formGroup.querySelector('.error-message') || document.createElement('div');
+        const errorMessage = this.errors.get(field.name);
+
+        errorElement.className = 'error-message';
+        
+        if (errorMessage) {
+            field.setAttribute('aria-invalid', 'true');
+            field.classList.add('invalid');
+            errorElement.textContent = errorMessage;
+            if (!formGroup.contains(errorElement)) {
+                formGroup.appendChild(errorElement);
+            }
+            errorElement.style.display = 'block';
+        } else {
+            field.removeAttribute('aria-invalid');
+            field.classList.remove('invalid');
+            errorElement.style.display = 'none';
+        }
+    }
+
+    validateForm() {
+        const fields = this.form.querySelectorAll('input, textarea, select');
+        let isValid = true;
+
+        fields.forEach(field => {
+            if (!this.validateField(field)) {
+                isValid = false;
+            }
+        });
+
+        return isValid;
+    }
+
+    showFormErrors() {
+        const fields = this.form.querySelectorAll('input, textarea, select');
+        fields.forEach(field => this.updateFieldUI(field));
+
+        // Focus first invalid field
+        const firstInvalidField = this.form.querySelector('[aria-invalid="true"]');
+        if (firstInvalidField) {
+            firstInvalidField.focus();
+        }
+    }
+}
+
+// Initialize form validation on DOMContentLoaded
+document.addEventListener('DOMContentLoaded', () => {
+    const forms = document.querySelectorAll('form[data-netlify="true"]');
+    forms.forEach(form => new FormValidator(form));
 });
