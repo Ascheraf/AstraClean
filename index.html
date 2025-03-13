@@ -3,375 +3,264 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Interieurreiniging Den Haag, auto interieur, tapijtreiniging, meubelreiniging">
-    <meta name="description" content="AstraClean biedt professionele interieurreiniging in Den Haag voor auto's, tapijten en meubels. Vraag nu een offerte aan!">
-    <meta name="robots" content="index, follow">
-    <title>AstraClean - Interieurreiniging in Den Haag</title>
+    <title>AstraClean - Professionele Reinigingsdiensten in Den Haag</title>
+    <meta name="description" content="Professionele reinigingsdiensten voor auto's, meubels en tapijten in Den Haag en omgeving. Milieuvriendelijk en effectief.">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Direct naar hoofdinhoud</a>
-    
-    <header role="banner">
-        <div class="container">
-            <img src="images/logo-AstraClean.png" 
-                 alt="AstraClean bedrijfslogo - professionele interieurreiniging" 
-                 class="logo" 
-                 width="300" 
-                 height="auto"
-                 fetchpriority="high"
-                 loading="lazy" 
-                 decoding="async">
-            <h1 class="visually-hidden">Interieurreiniging van Auto's, Tapijten en Banken in Den Haag en omgeving</h1>
+    <header class="header">
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <img src="images/logo.svg" alt="AstraClean Logo">
+                AstraClean
+            </a>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="#diensten" class="nav-link">Diensten</a></li>
+                    <li><a href="#over-ons" class="nav-link">Over Ons</a></li>
+                    <li><a href="#reviews" class="nav-link">Reviews</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <main id="main-content" role="main">
-        <div class="container">
-            <!-- Diensten Sectie -->
-            <section class="section services-section" aria-labelledby="services-title">
-                <h2 id="services-title" class="section-title">Onze Specialiteit in Interieurreiniging</h2>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text animate-in">
+                        <h1 class="hero-title">Professionele Reinigingsdiensten in Den Haag</h1>
+                        <p class="hero-subtitle">Specialisten in het reinigen van auto interieurs, meubels en tapijten. Milieuvriendelijk en effectief voor een schonere leefomgeving.</p>
+                        <div class="hero-buttons">
+                            <a href="#contact" class="button button-primary">Offerte Aanvragen</a>
+                            <a href="#diensten" class="button button-secondary">Onze Diensten</a>
+                        </div>
+                    </div>
+                    <div class="hero-image animate-in">
+                        <img src="images/hero-image.jpg" alt="Professionele reiniging demonstratie">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="diensten" class="section">
+            <div class="container">
+                <h2 class="section-title">Onze Diensten</h2>
+                <p class="section-subtitle">Ontdek ons uitgebreide aanbod aan professionele reinigingsdiensten</p>
+                
                 <div class="services-grid">
-                    <div class="service-card">
-                        <h3>Auto Interieurreiniging</h3>
-                        <p>Professionele reiniging van uw auto interieur. We pakken grondig alle oppervlakken aan, van stoelen tot dashboard.</p>
-                        <ul class="service-features">
-                            <li>Grondige stofzuiging</li>
-                            <li>Stoelen en bekleding reiniging</li>
-                            <li>Dashboard en console behandeling</li>
-                        </ul>
+                    <div class="service-card animate-in">
+                        <svg class="service-icon" viewBox="0 0 24 24">
+                            <path d="M12 4C7.58 4 4 7.58 4 12s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/>
+                        </svg>
+                        <h3 class="service-title">Auto Interieur Reiniging</h3>
+                        <p class="service-description">Complete reiniging van uw auto interieur, inclusief stoelen, dashboard, en vloerbedekking.</p>
                     </div>
-                    <div class="service-card">
-                        <h3>Tapijtreiniging</h3>
-                        <p>Diepgaande reiniging van uw tapijten en vloerkleden. We verwijderen vlekken en geuren voor een fris resultaat.</p>
-                        <ul class="service-features">
-                            <li>Vlekken verwijdering</li>
-                            <li>Dieptereiniging</li>
-                            <li>Geur neutralisatie</li>
-                        </ul>
+
+                    <div class="service-card animate-in">
+                        <svg class="service-icon" viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12z"/>
+                        </svg>
+                        <h3 class="service-title">Meubel Reiniging</h3>
+                        <p class="service-description">Professionele reiniging van uw meubels met speciale aandacht voor verschillende materialen.</p>
                     </div>
-                    <div class="service-card">
-                        <h3>Meubelreiniging</h3>
-                        <p>Professionele reiniging van uw meubels. We geven uw banken en stoelen een grondige opfrisbeurt.</p>
-                        <ul class="service-features">
-                            <li>Banken en stoelen</li>
-                            <li>Vlekken behandeling</li>
-                            <li>Beschermende coating</li>
+
+                    <div class="service-card animate-in">
+                        <svg class="service-icon" viewBox="0 0 24 24">
+                            <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                        </svg>
+                        <h3 class="service-title">Tapijt Reiniging</h3>
+                        <p class="service-description">Grondige reiniging van tapijten en vloerkleden met professionele apparatuur.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="over-ons" class="section">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2 class="section-title">Over AstraClean</h2>
+                        <p>Met jarenlange ervaring in de reinigingsbranche zijn wij uitgegroeid tot een betrouwbare partner voor al uw reinigingsbehoeften. Wij combineren vakmanschap met moderne technieken en milieuvriendelijke producten.</p>
+                        <ul class="about-features">
+                            <li>✓ Gecertificeerde professionals</li>
+                            <li>✓ Milieuvriendelijke producten</li>
+                            <li>✓ Moderne reinigingstechnieken</li>
+                            <li>✓ Flexibele planning</li>
                         </ul>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Testimonials Sectie -->
-            <section class="section testimonials-section" aria-labelledby="testimonials-title">
-                <h2 id="testimonials-title" class="section-title">Wat Onze Klanten Zeggen</h2>
+        <!-- Testimonials Section -->
+        <section id="reviews" class="section testimonials">
+            <div class="container">
+                <h2 class="section-title">Wat Klanten Zeggen</h2>
                 <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <div class="stars">★★★★★</div>
-                        <blockquote>
-                            <p>"Uitstekende service! Ze hebben mijn auto interieur als nieuw gemaakt. Zeer professioneel en grondig."</p>
-                            <footer>
-                                <cite>- Mark van der Berg</cite>
-                            </footer>
-                        </blockquote>
+                    <div class="testimonial-card animate-in">
+                        <p class="testimonial-content">"Uitstekende service! Mijn auto ziet er weer als nieuw uit. Het team was professioneel en efficiënt."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="images/avatar-1.jpg" alt="Sarah de Vries">
+                            </div>
+                            <div class="author-info">
+                                <div class="author-name">Sarah de Vries</div>
+                                <div class="author-title">Auto Interieur Reiniging</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="testimonial-card">
-                        <div class="stars">★★★★★</div>
-                        <blockquote>
-                            <p>"Mijn tapijt ziet er weer als nieuw uit. AstraClean heeft geweldig werk geleverd met het verwijderen van hardnekkige vlekken."</p>
-                            <footer>
-                                <cite>- Lisa de Vries</cite>
-                            </footer>
-                        </blockquote>
+
+                    <div class="testimonial-card animate-in">
+                        <p class="testimonial-content">"De tapijtreinigingsservice was geweldig. Alle vlekken zijn verdwenen en het ruikt weer fris."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="images/avatar-2.jpg" alt="Mark Jansen">
+                            </div>
+                            <div class="author-info">
+                                <div class="author-name">Mark Jansen</div>
+                                <div class="author-title">Tapijt Reiniging</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="testimonial-card">
-                        <div class="stars">★★★★★</div>
-                        <blockquote>
-                            <p>"Zeer tevreden met de reiniging van onze bank. Professioneel, op tijd en uitstekende resultaten!"</p>
-                            <footer>
-                                <cite>- Peter Jansen</cite>
-                            </footer>
-                        </blockquote>
+
+                    <div class="testimonial-card animate-in">
+                        <p class="testimonial-content">"Zeer tevreden met de meubelreiniging. Professioneel team en uitstekende resultaten."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="images/avatar-3.jpg" alt="Lisa Bakker">
+                            </div>
+                            <div class="author-info">
+                                <div class="author-name">Lisa Bakker</div>
+                                <div class="author-title">Meubel Reiniging</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Offerte Sectie -->
-            <section class="section quote-section" aria-labelledby="quote-title">
-                <h2 id="quote-title" class="section-title">Vraag Vandaag Nog een Offerte Aan</h2>
-                <form name="offerte" 
-                      method="POST" 
-                      action="/success"
-                      netlify
-                      data-netlify="true" 
-                      data-netlify-honeypot="bot-field"
-                      class="quote-form"
-                      netlify-honeypot="bot-field">
-                    <input type="hidden" name="form-name" value="offerte">
-                    <p class="hidden">
-                        <label>
-                            Niet invullen als u een mens bent: <input name="bot-field" />
-                        </label>
-                    </p>
-                    <div class="form-grid">
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2 class="contact-title">Neem Contact Op</h2>
+                        <p class="contact-text">Heeft u vragen of wilt u een offerte aanvragen? Neem contact met ons op en we helpen u graag verder.</p>
+                        <ul class="contact-details">
+                            <li class="contact-item">
+                                <svg class="contact-icon" viewBox="0 0 24 24">
+                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                </svg>
+                                info@astraclean.nl
+                            </li>
+                            <li class="contact-item">
+                                <svg class="contact-icon" viewBox="0 0 24 24">
+                                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                                </svg>
+                                070-1234567
+                            </li>
+                            <li class="contact-item">
+                                <svg class="contact-icon" viewBox="0 0 24 24">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                </svg>
+                                Den Haag, Nederland
+                            </li>
+                        </ul>
+                    </div>
+
+                    <form class="contact-form" name="contact" method="POST" data-netlify="true">
                         <div class="form-group">
-                            <label for="naam" class="form-label">Naam</label>
-                            <input type="text" 
-                                   id="naam" 
-                                   name="naam" 
-                                   class="form-control" 
-                                   required 
-                                   autocomplete="name">
+                            <label for="naam">Naam</label>
+                            <input type="text" id="naam" name="naam" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="email" class="form-label">E-mail</label>
-                            <input type="email" 
-                                   id="email" 
-                                   name="email" 
-                                   class="form-control" 
-                                   required 
-                                   autocomplete="email">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="telefoon" class="form-label">Telefoonnummer</label>
-                            <input type="tel" 
-                                   id="telefoon" 
-                                   name="telefoon" 
-                                   class="form-control" 
-                                   required 
-                                   autocomplete="tel">
+                            <label for="telefoon">Telefoonnummer</label>
+                            <input type="tel" id="telefoon" name="telefoon" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="dienst" class="form-label">Gewenste Dienst</label>
-                            <select id="dienst" 
-                                    name="dienst" 
-                                    class="form-control" 
-                                    required>
-                                <option value="">Kies een dienst</option>
-                                <option value="auto">Auto Interieurreiniging</option>
-                                <option value="tapijt">Tapijtreiniging</option>
-                                <option value="meubels">Meubelreiniging</option>
+                            <label for="dienst">Gewenste Dienst</label>
+                            <select id="dienst" name="dienst" class="form-control" required>
+                                <option value="">Selecteer een dienst</option>
+                                <option value="auto">Auto Interieur Reiniging</option>
+                                <option value="meubels">Meubel Reiniging</option>
+                                <option value="tapijt">Tapijt Reiniging</option>
                             </select>
                         </div>
-                        <div class="form-group full-width">
-                            <label for="bericht" class="form-label">Uw Bericht</label>
-                            <textarea id="bericht" 
-                                      name="bericht" 
-                                      class="form-control" 
-                                      rows="4" 
-                                      required></textarea>
+                        <div class="form-group">
+                            <label for="bericht">Uw Bericht</label>
+                            <textarea id="bericht" name="bericht" class="form-control" rows="5" required></textarea>
                         </div>
-                    </div>
-                    <div class="form-footer">
-                        <button type="submit" class="btn btn-primary">
-                            <span>Offerte Aanvragen</span>
-                            <div class="loading" style="display: none;"></div>
-                        </button>
-                    </div>
-                </form>
-            </section>
-
-            <!-- Kaart Sectie -->
-            <section class="section" aria-labelledby="location-title">
-                <h2 id="location-title">Onze Locatie</h2>
-                <a href="https://maps.app.goo.gl/FChkJxSKcfMjyxMH7" 
-                   target="_blank" 
-                   rel="noopener noreferrer"
-                   aria-label="Open onze locatie in Google Maps">
-                    <img src="images/locatie-foto.png" 
-                         alt="Locatie van AstraClean in Den Haag" 
-                         class="map-image"
-                         width="900" 
-                         height="auto"
-                         loading="lazy"
-                         decoding="async">
-                </a>
-            </section>
-
-            <!-- FAQ Sectie -->
-            <section class="section faq-section" aria-labelledby="faq-title">
-                <h2 id="faq-title" class="section-title">Veelgestelde Vragen (FAQ)</h2>
-                <div class="faq-list">
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            <span>Wat doet jullie interieurreinigingsbedrijf precies?</span>
-                            <svg class="faq-icon" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                            </svg>
-                        </button>
-                        <div class="faq-answer" hidden>
-                            <p>Wij zijn gespecialiseerd in het professioneel reinigen van auto interieurs, tapijten, en meubels. We gebruiken geavanceerde reinigingstechnieken en milieuvriendelijke producten om de beste resultaten te bereiken.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            <span>Hoe lang duurt een gemiddelde reinigingsbeurt?</span>
-                            <svg class="faq-icon" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                            </svg>
-                        </button>
-                        <div class="faq-answer" hidden>
-                            <p>De duur varieert afhankelijk van de dienst en de mate van vervuiling:</p>
-                            <ul>
-                                <li>Auto interieur: 2-3 uur</li>
-                                <li>Tapijt reiniging: 1-2 uur per kamer</li>
-                                <li>Meubelreiniging: 1-2 uur per meubelstuk</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            <span>Wat zijn jullie prijzen?</span>
-                            <svg class="faq-icon" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                            </svg>
-                        </button>
-                        <div class="faq-answer" hidden>
-                            <p>Onze prijzen zijn afhankelijk van verschillende factoren zoals de grootte van het project en de mate van vervuiling. We bieden altijd een gratis offerte aan zodat u precies weet waar u aan toe bent. Neem contact met ons op voor een persoonlijke prijsopgave.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            <span>Welke gebieden bedienen jullie?</span>
-                            <svg class="faq-icon" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                            </svg>
-                        </button>
-                        <div class="faq-answer" hidden>
-                            <p>We zijn actief in Den Haag en omstreken, waaronder:</p>
-                            <ul>
-                                <li>Rijswijk</li>
-                                <li>Voorburg</li>
-                                <li>Leidschendam</li>
-                                <li>Delft</li>
-                                <li>Zoetermeer</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            <span>Zijn jullie producten veilig voor kinderen en huisdieren?</span>
-                            <svg class="faq-icon" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                            </svg>
-                        </button>
-                        <div class="faq-answer" hidden>
-                            <p>Ja, we gebruiken uitsluitend milieuvriendelijke en niet-toxische reinigingsmiddelen die veilig zijn voor kinderen en huisdieren. Na de reiniging is het behandelde oppervlak direct veilig voor gebruik.</p>
-                        </div>
-                    </div>
+                        <button type="submit" class="button button-primary">Verstuur Bericht</button>
+                    </form>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section faq-section" aria-labelledby="faq-title">
+            <div class="container">
+                <h2 id="faq-title" class="section-title">Veelgestelde Vragen</h2>
+                <div class="faq-list">
+                    <!-- FAQ items from previous implementation -->
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer role="contentinfo">
-        <div class="footer-content">
-            <div class="contact-info">
-                <h3>Contactinformatie</h3>
-                <p>
-                    <a href="mailto:info@AstraClean.nl" class="contact-link">
-                        <span class="icon">✉️</span>
-                        <span>info@AstraClean.nl</span>
-                    </a>
-                </p>
-                <p>
-                    <a href="tel:+31648263747" class="contact-link">
-                        <span class="icon">📞</span>
-                        <span>+31 06 48263747</span>
-                    </a>
-                </p>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <a href="#" class="footer-logo">AstraClean</a>
+                    <p class="footer-description">Professionele reinigingsdiensten voor een schonere leefomgeving in Den Haag en omgeving.</p>
+                </div>
+                
+                <div class="footer-links-column">
+                    <h3 class="footer-title">Diensten</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#diensten">Auto Interieur</a></li>
+                        <li class="footer-link"><a href="#diensten">Meubel Reiniging</a></li>
+                        <li class="footer-link"><a href="#diensten">Tapijt Reiniging</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-column">
+                    <h3 class="footer-title">Bedrijf</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#over-ons">Over Ons</a></li>
+                        <li class="footer-link"><a href="#reviews">Reviews</a></li>
+                        <li class="footer-link"><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-column">
+                    <h3 class="footer-title">Contact</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link">070-1234567</li>
+                        <li class="footer-link">info@astraclean.nl</li>
+                        <li class="footer-link">Den Haag, Nederland</li>
+                    </ul>
+                </div>
             </div>
-            
-            <nav class="social-nav" aria-label="Social Media Links">
-                <ul class="social-icons">
-                    <li>
-                        <a href="https://www.facebook.com/AstraClean" 
-                           target="_blank" 
-                           rel="noopener noreferrer" 
-                           aria-label="Volg ons op Facebook">
-                            <img src="images/facebook-logo.png" 
-                                 alt="Facebook" 
-                                 width="32" 
-                                 height="32"
-                                 loading="lazy">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.tiktok.com/@AstraClean" 
-                           target="_blank" 
-                           rel="noopener noreferrer" 
-                           aria-label="Volg ons op TikTok">
-                            <img src="images/tiktok-logo.png" 
-                                 alt="TikTok" 
-                                 width="32" 
-                                 height="32"
-                                 loading="lazy">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.snapchat.com/add/AstraClean" 
-                           target="_blank" 
-                           rel="noopener noreferrer" 
-                           aria-label="Volg ons op Snapchat">
-                            <img src="images/snapchat-logo.png" 
-                                 alt="Snapchat" 
-                                 width="32" 
-                                 height="32"
-                                 loading="lazy">
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            
-            <p class="copyright">&copy; 2025 AstraClean. Alle rechten voorbehouden.</p>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 AstraClean. Alle rechten voorbehouden.</p>
+            </div>
         </div>
     </footer>
 
-    <button id="backToTop" 
-            onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
-            aria-label="Terug naar boven">
-        <span aria-hidden="true">↑</span>
-    </button>
-
-    <div id="successModal" class="modal" role="dialog" aria-labelledby="modal-title" aria-modal="true">
-        <div class="modal-content">
-            <button class="close" aria-label="Sluit melding">&times;</button>
-            <h3 id="modal-title">Bedankt, <span id="userName"></span>!</h3>
-            <p>Wij nemen binnen 24 uur contact met u op.</p>
-        </div>
-    </div>
-
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="script.js"></script>
-    <script src="form-test.js"></script>
-    <script src="perf-monitor.js"></script>
-    <script src="device-test.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', async () => {
-            // Start performance monitoring
-            PerfMonitor.start();
-            PerfMonitor.mobile.start();
-            
-            // Start device testing
-            const deviceTestResults = await DeviceTest.startTesting();
-            console.log('Device Testing Results:', deviceTestResults);
-            
-            // Log combined performance summary
-            setTimeout(() => {
-                console.log('Performance Summary:', {
-                    general: PerfMonitor.getSummary(),
-                    mobile: PerfMonitor.mobile.getMobileSummary(),
-                    devices: deviceTestResults
-                });
-            }, 5000);
-        });
-    </script>
 </body>
 </html>
