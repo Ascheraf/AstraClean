@@ -58,6 +58,16 @@
          <!-- Offerte Aanvraag Formulier -->
         <section class="section">
             <h2>Vraag een Offerte Aan</h2>
+            <!-- A hidden form that Netlify can detect -->
+            <form name="offerte" netlify netlify-honeypot="bot-field" hidden>
+                <input type="text" name="name" />
+                <input type="tel" name="phone" />
+                <input type="email" name="email" />
+                <select name="service"></select>
+                <input type="text" name="description" />
+            </form>
+            
+            <!-- The visible form -->
             <form name="offerte" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="form-inputs">
                 <input type="hidden" name="form-name" value="offerte" />
                 <p class="hidden">
