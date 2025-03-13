@@ -856,6 +856,86 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+// Mobile Menu Toggle
+document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+            navMenu.setAttribute('aria-expanded', !isExpanded);
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+                menuToggle.setAttribute('aria-expanded', 'false');
+                navMenu.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Close menu when clicking a nav link
+        const navLinks = navMenu.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.setAttribute('aria-expanded', 'false');
+                navMenu.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const headerOffset = 80;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Form validation and submission
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Basic form validation
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData);
+
+            try {
+                const response = await fetch('/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    alert('Bedankt voor uw bericht! We nemen zo spoedig mogelijk contact met u op.');
+                    contactForm.reset();
+                } else {
+                    throw new Error('Er is iets misgegaan. Probeer het later opnieuw.');
+                }
+            } catch (error) {
+                alert(error.message);
+            }
+        });
+    }
+});
+
 // Form validation utilities
 const validators = {
     required: (value) => value.trim() !== '',

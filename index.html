@@ -2,7 +2,8 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#0070c9">
     <title>AstraClean - Professionele Reinigingsdiensten in Den Haag</title>
     <meta name="description" content="Professionele reinigingsdiensten voor auto's, meubels en tapijten in Den Haag en omgeving. Milieuvriendelijk en effectief.">
     <link rel="stylesheet" href="styles.css">
@@ -11,13 +12,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
+    <header class="header" role="banner">
         <div class="container header-content">
-            <a href="#" class="logo">
-                <img src="images/logo.svg" alt="AstraClean Logo">
-                AstraClean
+            <a href="#" class="logo" aria-label="AstraClean Home">
+                <img src="images/logo.svg" alt="AstraClean Logo" width="40" height="40">
+                <span>AstraClean</span>
             </a>
-            <nav>
+            <nav class="nav-menu" role="navigation" aria-label="Main navigation">
                 <ul class="nav-list">
                     <li><a href="#diensten" class="nav-link">Diensten</a></li>
                     <li><a href="#over-ons" class="nav-link">Over Ons</a></li>
@@ -25,15 +26,18 @@
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
+            <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+                <span class="menu-icon"></span>
+            </button>
         </div>
     </header>
 
-    <main>
+    <main role="main">
         <!-- Hero Section -->
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <div class="hero-text animate-in">
+                    <div class="hero-text">
                         <h1 class="hero-title">Professionele Reinigingsdiensten in Den Haag</h1>
                         <p class="hero-subtitle">Specialisten in het reinigen van auto interieurs, meubels en tapijten. Milieuvriendelijk en effectief voor een schonere leefomgeving.</p>
                         <div class="hero-buttons">
@@ -41,7 +45,7 @@
                             <a href="#diensten" class="button button-secondary">Onze Diensten</a>
                         </div>
                     </div>
-                    <div class="hero-image animate-in">
+                    <div class="hero-image">
                         <img src="images/hero-image.jpg" alt="Professionele reiniging demonstratie">
                     </div>
                 </div>
@@ -49,53 +53,108 @@
         </section>
 
         <!-- Services Section -->
-        <section id="diensten" class="section">
+        <section id="diensten" class="section" aria-labelledby="services-title">
             <div class="container">
-                <h2 class="section-title">Onze Diensten</h2>
+                <h2 id="services-title" class="section-title">Onze Diensten</h2>
                 <p class="section-subtitle">Ontdek ons uitgebreide aanbod aan professionele reinigingsdiensten</p>
                 
                 <div class="services-grid">
                     <div class="service-card animate-in">
-                        <svg class="service-icon" viewBox="0 0 24 24">
-                            <path d="M12 4C7.58 4 4 7.58 4 12s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/>
-                        </svg>
-                        <h3 class="service-title">Auto Interieur Reiniging</h3>
-                        <p class="service-description">Complete reiniging van uw auto interieur, inclusief stoelen, dashboard, en vloerbedekking.</p>
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Residential Cleaning</h3>
+                        <p class="service-description">Comprehensive home cleaning services tailored to your needs, from regular maintenance to deep cleaning.</p>
                     </div>
 
                     <div class="service-card animate-in">
-                        <svg class="service-icon" viewBox="0 0 24 24">
-                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12z"/>
-                        </svg>
-                        <h3 class="service-title">Meubel Reiniging</h3>
-                        <p class="service-description">Professionele reiniging van uw meubels met speciale aandacht voor verschillende materialen.</p>
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Commercial Cleaning</h3>
+                        <p class="service-description">Professional cleaning solutions for offices, retail spaces, and commercial properties to maintain a pristine work environment.</p>
                     </div>
 
                     <div class="service-card animate-in">
-                        <svg class="service-icon" viewBox="0 0 24 24">
-                            <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
-                        </svg>
-                        <h3 class="service-title">Tapijt Reiniging</h3>
-                        <p class="service-description">Grondige reiniging van tapijten en vloerkleden met professionele apparatuur.</p>
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Deep Cleaning</h3>
+                        <p class="service-description">Thorough deep cleaning services that reach every corner, perfect for spring cleaning or moving in/out situations.</p>
+                    </div>
+
+                    <div class="service-card animate-in">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Window Cleaning</h3>
+                        <p class="service-description">Professional window cleaning services for crystal clear views, including high-rise buildings and hard-to-reach windows.</p>
+                    </div>
+
+                    <div class="service-card animate-in">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Carpet & Upholstery</h3>
+                        <p class="service-description">Expert cleaning of carpets, rugs, and upholstery using advanced techniques and eco-friendly products.</p>
+                    </div>
+
+                    <div class="service-card animate-in">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Post-Construction</h3>
+                        <p class="service-description">Specialized cleaning services after construction or renovation projects to remove debris and prepare spaces for use.</p>
+                    </div>
+
+                    <div class="service-card animate-in">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Sanitization Services</h3>
+                        <p class="service-description">Professional disinfection and sanitization services to ensure a healthy environment, especially important for high-traffic areas.</p>
+                    </div>
+
+                    <div class="service-card animate-in">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Specialized Cleaning</h3>
+                        <p class="service-description">Custom cleaning solutions for unique needs, including eco-friendly options and specialized surface treatments.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="over-ons" class="section">
+        <section id="over-ons" class="section" aria-labelledby="about-title">
             <div class="container">
                 <div class="about-content">
-                    <div class="about-text">
-                        <h2 class="section-title">Over AstraClean</h2>
-                        <p>Met jarenlange ervaring in de reinigingsbranche zijn wij uitgegroeid tot een betrouwbare partner voor al uw reinigingsbehoeften. Wij combineren vakmanschap met moderne technieken en milieuvriendelijke producten.</p>
-                        <ul class="about-features">
-                            <li>✓ Gecertificeerde professionals</li>
-                            <li>✓ Milieuvriendelijke producten</li>
-                            <li>✓ Moderne reinigingstechnieken</li>
-                            <li>✓ Flexibele planning</li>
-                        </ul>
-                    </div>
+                    <h2 id="about-title" class="section-title">Over AstraClean</h2>
+                    <p class="about-text">Met jarenlange ervaring in de reinigingsbranche zijn wij uitgegroeid tot een betrouwbare partner voor al uw reinigingsbehoeften. Wij combineren vakmanschap met moderne technieken en milieuvriendelijke producten.</p>
+                    <ul class="about-features" role="list">
+                        <li>✓ Gecertificeerde professionals</li>
+                        <li>✓ Milieuvriendelijke producten</li>
+                        <li>✓ Flexibele planning</li>
+                        <li>✓ Snelle service</li>
+                        <li>✓ 100% tevredenheidsgarantie</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -148,119 +207,78 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="section contact-section">
+        <section id="contact" class="section contact-section" aria-labelledby="contact-title">
             <div class="container">
+                <h2 id="contact-title" class="section-title">Neem Contact Op</h2>
                 <div class="contact-grid">
                     <div class="contact-info">
-                        <h2 class="contact-title">Neem Contact Op</h2>
-                        <p class="contact-text">Heeft u vragen of wilt u een offerte aanvragen? Neem contact met ons op en we helpen u graag verder.</p>
-                        <ul class="contact-details">
-                            <li class="contact-item">
-                                <svg class="contact-icon" viewBox="0 0 24 24">
-                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                                </svg>
-                                info@astraclean.nl
+                        <h3>Contact Informatie</h3>
+                        <ul class="contact-list" role="list">
+                            <li>
+                                <strong>Adres:</strong>
+                                <address>Hoofdstraat 123, 2511 AA Den Haag</address>
                             </li>
-                            <li class="contact-item">
-                                <svg class="contact-icon" viewBox="0 0 24 24">
-                                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                                </svg>
-                                070-1234567
+                            <li>
+                                <strong>Telefoon:</strong>
+                                <a href="tel:+31701234567">070 123 4567</a>
                             </li>
-                            <li class="contact-item">
-                                <svg class="contact-icon" viewBox="0 0 24 24">
-                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                                </svg>
-                                Den Haag, Nederland
+                            <li>
+                                <strong>Email:</strong>
+                                <a href="mailto:info@astraclean.nl">info@astraclean.nl</a>
                             </li>
                         </ul>
                     </div>
-
-                    <form class="contact-form" name="contact" method="POST" data-netlify="true">
+                    <form class="contact-form" action="/submit" method="POST" role="form">
                         <div class="form-group">
-                            <label for="naam">Naam</label>
-                            <input type="text" id="naam" name="naam" class="form-control" required>
+                            <label for="name">Naam</label>
+                            <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">E-mail</label>
-                            <input type="email" id="email" name="email" class="form-control" required>
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="telefoon">Telefoonnummer</label>
-                            <input type="tel" id="telefoon" name="telefoon" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="dienst">Gewenste Dienst</label>
-                            <select id="dienst" name="dienst" class="form-control" required>
-                                <option value="">Selecteer een dienst</option>
-                                <option value="auto">Auto Interieur Reiniging</option>
-                                <option value="meubels">Meubel Reiniging</option>
-                                <option value="tapijt">Tapijt Reiniging</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="bericht">Uw Bericht</label>
-                            <textarea id="bericht" name="bericht" class="form-control" rows="5" required></textarea>
+                            <label for="message">Bericht</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
                         <button type="submit" class="button button-primary">Verstuur Bericht</button>
                     </form>
                 </div>
             </div>
         </section>
-
-        <!-- FAQ Section -->
-        <section class="section faq-section" aria-labelledby="faq-title">
-            <div class="container">
-                <h2 id="faq-title" class="section-title">Veelgestelde Vragen</h2>
-                <div class="faq-list">
-                    <!-- FAQ items from previous implementation -->
-                </div>
-            </div>
-        </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-info">
-                    <a href="#" class="footer-logo">AstraClean</a>
-                    <p class="footer-description">Professionele reinigingsdiensten voor een schonere leefomgeving in Den Haag en omgeving.</p>
+                    <img src="images/logo.svg" alt="AstraClean Logo" width="40" height="40">
+                    <p>Professionele reinigingsdiensten in Den Haag en omgeving. Milieuvriendelijk en effectief voor een schonere leefomgeving.</p>
                 </div>
-                
-                <div class="footer-links-column">
-                    <h3 class="footer-title">Diensten</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link"><a href="#diensten">Auto Interieur</a></li>
-                        <li class="footer-link"><a href="#diensten">Meubel Reiniging</a></li>
-                        <li class="footer-link"><a href="#diensten">Tapijt Reiniging</a></li>
+                <div class="footer-links">
+                    <h3>Snelle Links</h3>
+                    <ul role="list">
+                        <li><a href="#diensten">Diensten</a></li>
+                        <li><a href="#over-ons">Over Ons</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
-
-                <div class="footer-links-column">
-                    <h3 class="footer-title">Bedrijf</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link"><a href="#over-ons">Over Ons</a></li>
-                        <li class="footer-link"><a href="#reviews">Reviews</a></li>
-                        <li class="footer-link"><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-links-column">
-                    <h3 class="footer-title">Contact</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link">070-1234567</li>
-                        <li class="footer-link">info@astraclean.nl</li>
-                        <li class="footer-link">Den Haag, Nederland</li>
-                    </ul>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <address>
+                        Hoofdstraat 123<br>
+                        2511 AA Den Haag<br>
+                        <a href="tel:+31701234567">070 123 4567</a><br>
+                        <a href="mailto:info@astraclean.nl">info@astraclean.nl</a>
+                    </address>
                 </div>
             </div>
-
             <div class="footer-bottom">
-                <p>&copy; 2025 AstraClean. Alle rechten voorbehouden.</p>
+                <p>&copy; 2024 AstraClean. Alle rechten voorbehouden.</p>
             </div>
         </div>
     </footer>
-
     <script src="script.js"></script>
 </body>
 </html>
