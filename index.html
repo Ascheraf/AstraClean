@@ -57,53 +57,77 @@
         </section>
 
          <!-- Offerte Aanvraag Formulier -->
-        <section class="section">
-            <h2>Vraag een Offerte Aan</h2>
-            <!-- The form -->
+        <section class="section offerte-section">
+            <div class="offerte-header">
+                <h2>Vraag een Offerte Aan</h2>
+                <p class="offerte-intro">Laat ons weten wat we voor u kunnen betekenen. Wij nemen binnen 24 uur contact met u op!</p>
+            </div>
+            
             <form name="offerte" method="POST" data-netlify="true" data-netlify-recaptcha="true" data-netlify-honeypot="bot-field">
                 <input type="hidden" name="form-name" value="offerte" />
                 <p style="display: none">
                     <label>Don't fill this out if you're human: <input name="bot-field" /></label>
                 </p>
 
-                <label for="name">Naam:</label>
-                <input type="text" id="name" name="name" placeholder="Jouw naam" required aria-required="true">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">Naam:</label>
+                        <input type="text" id="name" name="name" placeholder="Jouw naam" required aria-required="true">
+                    </div>
 
-                <label for="phone">Telefoonnummer:</label>
-                <input type="tel" id="phone" name="phone" placeholder="06-12345678" required aria-required="true">
+                    <div class="form-group">
+                        <label for="phone">Telefoonnummer:</label>
+                        <input type="tel" id="phone" name="phone" placeholder="06-12345678" required aria-required="true">
+                    </div>
 
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" placeholder="jouw@email.com" required aria-required="true">
+                    <div class="form-group">
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" placeholder="jouw@email.com" required aria-required="true">
+                    </div>
 
-                <label for="service">Type Dienst:</label>
-                <select id="service" name="service" required aria-required="true">
-                    <optgroup label="Schoonmaakdiensten">
-                        <option value="auto_interieur_reiniging">Auto Interieurreiniging</option>
-                        <option value="tapijtreiniging">Tapijtreiniging</option>
-                        <option value="bank_reiniging">Banken Reiniging</option>
-                        <option value="gordijnen_reiniging">Gordijnen Reiniging</option>
-                        <option value="meubel_reiniging">Meubels Reiniging</option>
-                        <option value="vloer_reiniging">Vloer Reiniging</option>
-                        <option value="keuken_reiniging">Keuken Reiniging</option>
-                        <option value="badkamer_reiniging">Badkamer Reiniging</option>
-                        <option value="raam_reiniging">Ramen Lappen</option>
-                        <option value="overige">Overige</option>
-                    </optgroup>
-                    <optgroup label="Diversen">
-                        <option value="verhuizing_schoonmaak">Eindschoonmaak bij Verhuizing</option>
-                        <option value="kantoor_schoonmaak">Kantoor Schoonmaak</option>
-                        <option value="bouw_schoonmaak">Bouwoplevering Schoonmaak</option>
-                        <option value="desinfectie">Desinfectie Diensten</option>
-                    </optgroup>
-                </select>
+                    <div class="form-group">
+                        <label for="service">Type Dienst:</label>
+                        <select id="service" name="service" required aria-required="true">
+                            <optgroup label="Schoonmaakdiensten">
+                                <option value="" disabled selected>Selecteer een dienst...</option>
+                                <option value="auto_interieur_reiniging">Auto Interieurreiniging</option>
+                                <option value="tapijtreiniging">Tapijtreiniging</option>
+                                <option value="bank_reiniging">Banken Reiniging</option>
+                                <option value="gordijnen_reiniging">Gordijnen Reiniging</option>
+                                <option value="meubel_reiniging">Meubels Reiniging</option>
+                                <option value="vloer_reiniging">Vloer Reiniging</option>
+                                <option value="keuken_reiniging">Keuken Reiniging</option>
+                                <option value="badkamer_reiniging">Badkamer Reiniging</option>
+                                <option value="raam_reiniging">Ramen Lappen</option>
+                                <option value="overige">Overige</option>
+                            </optgroup>
+                            <optgroup label="Diversen">
+                                <option value="verhuizing_schoonmaak">Eindschoonmaak bij Verhuizing</option>
+                                <option value="kantoor_schoonmaak">Kantoor Schoonmaak</option>
+                                <option value="bouw_schoonmaak">Bouwoplevering Schoonmaak</option>
+                                <option value="desinfectie">Desinfectie Diensten</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                </div>
 
-                <label for="description">Korte omschrijving (max. 140 tekens):</label>
-                <textarea id="description" name="description" maxlength="140" required></textarea>
+                <div class="form-group full-width">
+                    <label for="description">Korte omschrijving:</label>
+                    <textarea id="description" name="description" placeholder="Vertel ons meer over uw wensen..." maxlength="140" required></textarea>
+                    <span class="char-count">0/140</span>
+                </div>
 
-                <div data-netlify-recaptcha="true"></div>
-                <button type="submit" class="cta-button" aria-label="Verzend offerte aanvraag">Verzend Offerte</button>
+                <div class="form-footer">
+                    <div data-netlify-recaptcha="true"></div>
+                    <button type="submit" class="cta-button" aria-label="Verzend offerte aanvraag">
+                        <span class="button-text">Verzend Offerte</span>
+                        <span class="button-icon">→</span>
+                    </button>
+                </div>
             </form>
-<!-- Modale pop-up -->
+        </section>
+
+        <!-- Modale pop-up -->
 <div id="successModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
