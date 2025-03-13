@@ -32,7 +32,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 
                 // Reset formulier
                 form.reset();
-                grecaptcha.reset();
+                if (typeof grecaptcha !== 'undefined') {
+                    grecaptcha.reset();
+                }
             } else {
                 throw new Error('Er is iets misgegaan bij het verzenden van het formulier.');
             }
