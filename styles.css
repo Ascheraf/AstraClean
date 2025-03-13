@@ -271,12 +271,58 @@ img {
     padding: 2rem;
     box-shadow: var(--shadow-sm);
     transition: all var(--transition-normal);
-    will-change: transform, box-shadow;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-card::before {
+    content: '"';
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 4rem;
+    color: var(--primary-color);
+    opacity: 0.1;
+    font-family: Georgia, serif;
 }
 
 .testimonial-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
+}
+
+.testimonial-content {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.author-info {
+    margin-left: 0;
+}
+
+.author-name {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+}
+
+.author-title {
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+.testimonial-rating {
+    margin-bottom: 1rem;
+}
+
+.stars {
+    color: #ffd700;
+    font-size: 1.25rem;
+    letter-spacing: 2px;
 }
 
 /* Loading state */
@@ -543,6 +589,12 @@ img {
     overflow: hidden;
     border-radius: 1rem;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transform: perspective(1000px) rotateY(-5deg);
+    transition: transform 0.5s ease;
+}
+
+.hero-image:hover {
+    transform: perspective(1000px) rotateY(0deg);
 }
 
 .hero-image img {
@@ -554,6 +606,17 @@ img {
 
 .hero-image:hover img {
     transform: scale(1.05);
+}
+
+.hero-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(var(--primary-rgb), 0.1), transparent);
+    pointer-events: none;
 }
 
 /* Services Grid */
@@ -987,6 +1050,26 @@ img {
     .section-title {
         font-size: 1.75rem;
     }
+
+    .hero-image {
+        transform: none;
+    }
+    
+    .hero-image:hover {
+        transform: none;
+    }
+    
+    .testimonial-card {
+        padding: 1.5rem;
+    }
+    
+    .testimonial-content {
+        font-size: 1rem;
+    }
+    
+    .author-name {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 576px) {
@@ -1269,4 +1352,14 @@ img {
 .message-error {
     background: #dc3545;
     color: white;
+}
+
+.testimonial-rating {
+    margin-bottom: 1rem;
+}
+
+.stars {
+    color: #ffd700;
+    font-size: 1.25rem;
+    letter-spacing: 2px;
 }
